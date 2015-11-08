@@ -23,7 +23,12 @@
 
 ## Backlog de produit
 
-#### 003 - Administrer les vidéos Youtube
+#### 003 - Consulter les insei
+ETQ FanHui je peux consulter les Insei.
+- doit lister les Insei par noms, prénoms et nickname Slack.
+- doit créer les informations manuellement en attendant de pouvoir les récupérer de slack.
+
+#### 004 - Administrer les vidéos Youtube
 ETQ FanHui je peux administrer les vidéos non référencées par Youtube afin de les rendre disponibles aux Insei.
 - doit ajouter la vidéo via la référence Youtube.
 - doit récupérer les méta-données de Youtube.
@@ -31,10 +36,14 @@ ETQ FanHui je peux administrer les vidéos non référencées par Youtube afin d
 - doit lister les vidéos en précisant si ce sont des Joseki ou des Fuseki.
 - doit permettre d'effacer une vidéo.
 
-#### 004 - Afficher une vidéo spécifique
+#### 005 - Afficher une vidéo spécifique
 ETQ Insei je peux consulter une vidéo afin de suivre un cours en rediffusion.
 - doit permettre l'affichage en plein écran.
 - doit s'afficher dans un onglet séparé.
+
+#### 006 - Consulter mes informations
+ETQ Insei je peux gérer mes informations.
+- doit permettre de gérer : mail, kgs nickname, kgs rank, ffg rank.
 
 ### Terminées
 
