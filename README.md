@@ -18,8 +18,8 @@
 - [Babel](http://babeljs.io/docs/learn-es2015/)
 
 ### Packages
-- [gfk-ba/meteor-notifications
-](https://github.com/gfk-ba/meteor-notifications/blob/master/README.md)
+- [gfk-ba/meteor-notifications](https://github.com/gfk-ba/meteor-notifications/blob/master/README.md)
+- [Iron Router](http://iron-meteor.github.io/iron-router/)
 
 ## Backlog de produit
 
