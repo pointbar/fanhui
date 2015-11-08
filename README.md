@@ -1,6 +1,10 @@
 # Académie de Go de Fan Hui
 - [site](http://goacademie.github.io/fanhui/)
 
+## Équipe
+- Fan Hui - Product Manager
+- Stéphane Langlois - Dev/PO
+
 ## Technos utilisées
 - Framework - [Meteor JS](https://www.meteor.com/)
 - Hébergement sur [meteor.com](fanhui.meteor.com)
@@ -34,4 +38,7 @@ ETQ Insei je peux consulter une vidéo afin de suivre un cours en rediffusion.
 
 ## DoD
 - Ne doit être accessible qu'aux élèves de l'académie Fan-Hui.
+
+## Licence
+En cours
 
