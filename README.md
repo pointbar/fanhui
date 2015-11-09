@@ -23,11 +23,6 @@
 
 ## Backlog de produit
 
-#### 003 - Consulter les insei
-ETQ FanHui je peux consulter les Insei.
-- doit lister les Insei par noms, prénoms et nickname Slack.
-- doit créer les informations manuellement en attendant de pouvoir les récupérer de slack.
-
 #### 004 - Administrer les vidéos Youtube
 ETQ FanHui je peux administrer les vidéos non référencées par Youtube afin de les rendre disponibles aux Insei.
 - doit ajouter la vidéo via la référence Youtube.
@@ -57,9 +52,16 @@ ETQ visiteur extérieur je dois être prévenu que les pages du site ne me sont 
 - doit afficher un message pour me prévenir que l'académie est privée.
 - doit afficher un lien pour contacter Fan-Hui.
 
+#### 003 - Consulter les insei
+ETQ FanHui je peux consulter les Insei.
+- doit lister les Insei par noms, prénoms et nickname Slack.
+- doit créer les informations manuellement en attendant de pouvoir les récupérer de slack.
+
 ## DoD
 - Ne doit être accessible qu'aux élèves de l'académie Fan-Hui.
 - Doit comporter des messages de notification
+- Doit être réservé à Fan Hui pour l'administration
+- Doit être accessible que pour les inseis pour les pages de cours
 
 ## Licence
 En cours
