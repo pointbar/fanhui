@@ -12,7 +12,11 @@ Package.onUse(function(api) {
   api.use(['iron:router', 'templating'], 'client')
   api.addFiles('collection.js')
   api.addFiles(['server/inseiRecords.js', 'server/model.js'], 'server')
-  api.addFiles(['client/router.js', 'client/list.html', 'client/list.js'], 'client')
+  api.addFiles([
+    'client/router.js',
+    'client/inseis-list.html',
+    'client/inseis-list.js'
+  ], 'client')
 })
 
 Package.onTest(function(api) {

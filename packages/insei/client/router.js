@@ -1,3 +1,3 @@
 Router.route('/admin/insei/oragefan', {
-  template: 'list'
+  template: 'inseisList'
 })
