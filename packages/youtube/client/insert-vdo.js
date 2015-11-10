@@ -1,0 +1,1 @@
+Template.vdoInsert.helpers({})
