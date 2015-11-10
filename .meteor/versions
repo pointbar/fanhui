@@ -56,6 +56,7 @@ npm-mongo@1.4.39_1
 observe-sequence@1.0.7
 ordered-dict@1.0.4
 pntbr:insei@0.0.1
+pntbr:youtube@0.0.1
 promise@0.5.1
 random@1.0.5
 reactive-dict@1.1.3

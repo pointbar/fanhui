@@ -23,10 +23,13 @@
 
 ## Backlog de produit
 
+### En cours
+
 #### 004 - Administrer les vidéos Youtube
 ETQ FanHui je peux administrer les vidéos non référencées par Youtube afin de les rendre disponibles aux Insei.
 - doit ajouter la vidéo via la référence Youtube.
 - doit récupérer les méta-données de Youtube.
+- doit enregistrer la vignette correspondante.
 - doit récupérer la date, le numéro et le type des cours par le titre Youtube.
 - doit lister les vidéos en précisant si ce sont des Joseki ou des Fuseki.
 - doit permettre d'effacer une vidéo.
@@ -56,6 +59,11 @@ ETQ visiteur extérieur je dois être prévenu que les pages du site ne me sont 
 ETQ FanHui je peux consulter les Insei.
 - doit lister les Insei par noms, prénoms et nickname Slack.
 - doit créer les informations manuellement en attendant de pouvoir les récupérer de slack.
+
+### Grainerie
+
+#### - Ajouter un SGF
+#### - Visualiser un SGF
 
 ## DoD
 - Ne doit être accessible qu'aux élèves de l'académie Fan-Hui.
