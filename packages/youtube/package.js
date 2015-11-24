@@ -11,9 +11,10 @@ Package.onUse(function(api) {
   api.use(['ecmascript', 'mongo'])
   api.use(['iron:router', 'templating'], 'client')
   api.addFiles('collection.js')
-  api.addFiles(['server/vdoRecords.js', 'server/model.js'], 'server')
+  api.addFiles(['server/record-vdos.js', 'server/model.js'], 'server')
   api.addFiles([
     'client/youtube.html',
+    'client/style.css',
     'client/router.js',
     'client/list-vdos.html',
     'client/list-vdos.js',
@@ -23,8 +24,8 @@ Package.onUse(function(api) {
 })
 
 Package.onTest(function(api) {
-  api.use('ecmascript')
-  api.use('tinytest')
+  api.use(['ecmascript', 'tinytest'])
+  api.use(['iron:router@1.0.0', 'templating'], 'client')
   api.use('pntbr:youtube')
-  api.addFiles('youtube-tests.js')
+  api.addFiles('tests-youtube.js', 'client')
 })

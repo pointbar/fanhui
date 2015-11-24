@@ -20,8 +20,8 @@ Package.onUse(function(api) {
 })
 
 Package.onTest(function(api) {
-  api.use('ecmascript')
-  api.use('tinytest')
+  api.use(['ecmascript', 'tinytest'])
+  api.use(['iron:router@1.0.0', 'templating'], 'client')
   api.use('pntbr:insei')
   api.addFiles('tests-insei.js')
 })
