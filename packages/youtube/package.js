@@ -9,9 +9,9 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.2.1')
   api.use(['ecmascript', 'mongo'])
-  api.use(['iron:router', 'templating'], 'client')
+  api.use(['iron:router', 'templating', 'session'], 'client')
   api.addFiles('collection.js')
-  api.addFiles(['server/record-vdos.js', 'server/model.js'], 'server')
+  api.addFiles(['server/model.js'], 'server')
   api.addFiles([
     'client/youtube.html',
     'client/style.css',
@@ -21,11 +21,14 @@ Package.onUse(function(api) {
     'client/insert-vdo.html',
     'client/insert-vdo.js'
   ], 'client')
+  api.export(['notifBadYoutubeId'], 'client')
+  api.export('Vdos', 'server')
+    api.export(['Vdos', 'youtubeIdCheckLength'], 'client') // test
 })
 
 Package.onTest(function(api) {
-  api.use(['ecmascript', 'tinytest'])
+  api.use(['ecmascript', 'tinytest', 'pntbr:youtube'])
   api.use(['iron:router@1.0.0', 'templating'], 'client')
-  api.use('pntbr:youtube')
-  api.addFiles('tests-youtube.js', 'client')
+  api.addFiles('tests-stubs.js')
+  api.addFiles('tests-youtube.js')
 })
