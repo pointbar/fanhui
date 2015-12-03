@@ -4,4 +4,3 @@ Template.listVdos.helpers({
     return Vdos.find()
   }
 })
-
