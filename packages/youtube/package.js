@@ -23,7 +23,14 @@ Package.onUse(function(api) {
   ], 'client')
   api.export(['notifBadYoutubeId'], 'client')
   api.export('Vdos', 'server')
-    api.export(['Vdos', 'youtubeIdCheckLength'], 'client') // test
+  api.export([
+    'Vdos',
+    'youtubeIdCheckLength',
+    'queryValueByFieldName',
+    'checkTitle',
+    'categoryByTitle',
+    'dateByTitle',
+    'rankByTitle'], 'client')
 })
 
 Package.onTest(function(api) {
