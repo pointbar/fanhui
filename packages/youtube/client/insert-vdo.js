@@ -1,5 +1,31 @@
+queryValueByFieldName = (fieldName, query) =>
+  query.split('&')
+    .filter(parameter => parameter.match(`^${fieldName}=`))[0]
+    .split('=')[1]
+
 youtubeIdCheckLength = (youtubeId) =>
   youtubeId.length === 11
+
+checkTitle = (youtubeTitle) =>
+  youtubeTitle.match(/^\d{3}-(?:Joseki|Fuseki)-\d{2}-\d{2}-\d{4}/)
+
+categoryByTitle = (youtubeTitle) =>
+  youtubeTitle.match(/(?:Joseki)/) && 'Joseki'
+  || youtubeTitle.match(/(?:Fuseki)/) && 'Fuseki'
+
+dateByTitle = (youtubeTitle) =>
+  new Date(
+    +youtubeTitle.split('-')[4],
+    +youtubeTitle.split('-')[3] - 1,
+    +youtubeTitle.split('-')[2]
+  )
+
+rankByTitle = (youtubeTitle) =>
+  +youtubeTitle.match(/^\d{3}/)[0]
+
+/*
+ * FUNNEL composed by promises
+ */
 
 notifBadYoutubeId = (youtubeId) =>
   new Promise((resolve, reject) => {
@@ -35,14 +61,42 @@ notifNoYoutubeData = (youtubeId) =>
     })
   )
 
-callSave = (youtubeData) => {
-  console.info('data', youtubeData.content)
-}
+buildVdoRecord = (youtubeData) =>
+  new Promise((resolve) => {
+    let vdoRecord = {}
+    vdoRecord.video_id = queryValueByFieldName('video_id', youtubeData.content)
+    vdoRecord.title = queryValueByFieldName('title', youtubeData.content)
+    resolve(vdoRecord)
+  })
+
+notifBadTitle = (vdoRecord) =>
+  new Promise((resolve, reject) => {
+    if (! checkTitle(vdoRecord.title)) {
+      Notifications.warn('Problème de titre Youtube', `${vdoRecord.title}`)
+      reject()
+    }
+    resolve(vdoRecord)
+  })
+
+finalizeVdoRecord = (vdoRecord) =>
+  new Promise((resolve) => {
+    vdoRecord.category = categoryByTitle(vdoRecord.title)
+    vdoRecord.date = dateByTitle(vdoRecord.title)
+    vdoRecord.rank = rankByTitle(vdoRecord.title)
+    resolve(vdoRecord)
+  })
+
+saveVdo = (vdoRecord) =>
+  console.info('Record', vdoRecord)
+
 checkAndSave = (youtubeId) => {
   notifBadYoutubeId(youtubeId)
     .then(notifVdoExists)
     .then(notifNoYoutubeData)
-    .then(callSave)
+    .then(buildVdoRecord)
+    .then(notifBadTitle)
+    .then(finalizeVdoRecord)
+    .then(saveVdo)
 }
 
 Template.insertVdo.events({

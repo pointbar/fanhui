@@ -20,3 +20,20 @@ Meteor.methods({
   },
   isVdoExists: (youTubeId) => !! Vdos.find({youtube_id: youTubeId}).count()
 })
+
+function saveLink(youtubeId) {
+  getVdoTitle(youtubeId, function (youtubeTitle) {
+    let type = getTypeByTitle(youtubeTitle)
+    let rank = getRankByTitle(youtubeTitle)
+    let date = getDateByTitle(youtubeTitle)
+    Vdo.insert({
+      youtube_id: youtubeId,
+      rank: rank,
+      type: type,
+      date: date,
+      youtube_title: youtubeTitle
+    })
+    Session.set('alert',
+      `La video : '${youtubeTitle}' est maintenant disponible.`)
+  })
+}
