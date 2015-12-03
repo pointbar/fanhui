@@ -71,6 +71,10 @@ ETQ FanHui je peux consulter les Insei.
 - Doit être réservé à Fan Hui pour l'administration
 - Doit être accessible que pour les inseis pour les pages de cours
 
+## TODO
+- Sinon.js
+- Meteor Test
+
 ## Licence
 En cours
 
