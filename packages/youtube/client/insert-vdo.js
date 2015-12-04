@@ -87,7 +87,8 @@ finalizeVdoRecord = (vdoRecord) =>
   })
 
 saveVdo = (vdoRecord) =>
-  console.info('Record', vdoRecord)
+  Meteor.call('saveVdo', vdoRecord, () =>
+    Notifications.success('Vidéo enregistrée', `${vdoRecord.title}`))
 
 checkAndSave = (youtubeId) => {
   notifBadYoutubeId(youtubeId)

@@ -74,6 +74,7 @@ ETQ FanHui je peux consulter les Insei.
 ## TODO
 - Sinon.js
 - Meteor Test
+- secure BD
 
 ## Licence
 En cours
