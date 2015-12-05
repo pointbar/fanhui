@@ -17,4 +17,4 @@ let vdos = [
 ]
 
 Meteor.subscribe('vdos', () =>
-  (! Vdos.find().count()) && vdos.map((vdo) => checkAndSave(vdo.video_id)))
+  (! Vdos.find().count()) && vdos.map(({video_id}) => checkAndSave(video_id)))

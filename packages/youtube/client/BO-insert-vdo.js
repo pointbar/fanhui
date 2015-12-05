@@ -75,14 +75,14 @@ let notifBadTitle = (vdoRecord) =>
     resolve(vdoRecord)
   })
 
-let finalizeVdoRecord = (vdoRecord) =>
+let finalizeVdoRecord = ({title, video_id}) =>
   new Promise((resolve) =>
     resolve({
-      video_id: vdoRecord.video_id,
-      title: vdoRecord.title,
-      category: categoryByTitle(vdoRecord.title),
-      date: dateByTitle(vdoRecord.title),
-      rank: rankByTitle(vdoRecord.title)
+      video_id: video_id,
+      title: title,
+      category: categoryByTitle(title),
+      date: dateByTitle(title),
+      rank: rankByTitle(title)
     }))
 
 let saveVdo = (vdoRecord) =>
