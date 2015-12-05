@@ -5,5 +5,5 @@ if (Meteor.isClient) {
 }
 if (Meteor.isServer) {
   Vdos.find().map((elt) => Vdos.remove(elt._id))
-  Vdos.insert({youtube_id: 'AxRg12345tG'})
+  Vdos.insert({video_id: 'AxRg12345tG'})
 }

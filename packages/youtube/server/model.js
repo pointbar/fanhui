@@ -18,6 +18,6 @@ Meteor.methods({
     }
     return youtubeData
   },
-  isVdoExists: (youTubeId) => !! Vdos.find({youtube_id: youTubeId}).count(),
+  isVdoExists: (youTubeId) => !! Vdos.find({video_id: youTubeId}).count(),
   saveVdo: (vdoRecord) => Vdos.insert(vdoRecord)
 })
