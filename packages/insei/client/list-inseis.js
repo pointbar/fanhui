@@ -1,6 +1,9 @@
+Template.inseisList.onCreated(function () {
+  this.subscribe('inseis')
+})
+
 Template.inseisList.helpers({
-  inseis: () => {
-    Meteor.subscribe('inseis')
-    return Inseis.find()
-  }
+  inseis: () => Inseis.find(
+    {role: 'insei'},
+    {sort: {lastName: 1}})
 })
