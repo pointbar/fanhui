@@ -13,12 +13,10 @@ categoryByTitle = (youtubeTitle) =>
   youtubeTitle.match(/(?:Joseki)/) && 'Joseki'
   || youtubeTitle.match(/(?:Fuseki)/) && 'Fuseki'
 
-dateByTitle = (youtubeTitle) =>
-  new Date(
-    +youtubeTitle.split('-')[4],
-    +youtubeTitle.split('-')[3] - 1,
-    +youtubeTitle.split('-')[2]
-  )
+dateByTitle = (youtubeTitle) => {
+  let [,, day, month, year] = youtubeTitle.split('-')
+  return new Date(+year, +month - 1, +day)
+}
 
 rankByTitle = (youtubeTitle) =>
   +youtubeTitle.match(/^\d{3}/)[0]
@@ -27,7 +25,7 @@ rankByTitle = (youtubeTitle) =>
  * FUNNEL composed by promises
  */
 
-notifBadYoutubeId = (youtubeId) =>
+let notifBadYoutubeId = (youtubeId) =>
   new Promise((resolve, reject) => {
     if (! youtubeIdCheckLength(youtubeId)) {
       Notifications.warn(
@@ -37,7 +35,7 @@ notifBadYoutubeId = (youtubeId) =>
       resolve(youtubeId)
   })
 
-notifVdoExists = (youtubeId) =>
+let notifVdoExists = (youtubeId) =>
   new Promise((resolve, reject) =>
     Meteor.call('isVdoExists', youtubeId, (err, isExists) => {
       if (isExists) {
@@ -49,7 +47,7 @@ notifVdoExists = (youtubeId) =>
     })
   )
 
-notifNoYoutubeData = (youtubeId) =>
+let notifNoYoutubeData = (youtubeId) =>
   new Promise((resolve, reject) =>
     Meteor.call('collectYoutubeData', youtubeId, (err, youtubeData) => {
       if (err) {
@@ -61,15 +59,14 @@ notifNoYoutubeData = (youtubeId) =>
     })
   )
 
-buildVdoRecord = (youtubeData) =>
-  new Promise((resolve) => {
-    let vdoRecord = {}
-    vdoRecord.video_id = queryValueByFieldName('video_id', youtubeData.content)
-    vdoRecord.title = queryValueByFieldName('title', youtubeData.content)
-    resolve(vdoRecord)
-  })
+let buildVdoRecord = (youtubeData) =>
+  new Promise((resolve) =>
+    resolve({
+      video_id: queryValueByFieldName('video_id', youtubeData.content),
+      title: queryValueByFieldName('title', youtubeData.content)
+    }))
 
-notifBadTitle = (vdoRecord) =>
+let notifBadTitle = (vdoRecord) =>
   new Promise((resolve, reject) => {
     if (! checkTitle(vdoRecord.title)) {
       Notifications.warn('Problème de titre Youtube', `${vdoRecord.title}`)
@@ -78,19 +75,21 @@ notifBadTitle = (vdoRecord) =>
     resolve(vdoRecord)
   })
 
-finalizeVdoRecord = (vdoRecord) =>
-  new Promise((resolve) => {
-    vdoRecord.category = categoryByTitle(vdoRecord.title)
-    vdoRecord.date = dateByTitle(vdoRecord.title)
-    vdoRecord.rank = rankByTitle(vdoRecord.title)
-    resolve(vdoRecord)
-  })
+let finalizeVdoRecord = (vdoRecord) =>
+  new Promise((resolve) =>
+    resolve({
+      video_id: vdoRecord.video_id,
+      title: vdoRecord.title,
+      category: categoryByTitle(vdoRecord.title),
+      date: dateByTitle(vdoRecord.title),
+      rank: rankByTitle(vdoRecord.title)
+    }))
 
-saveVdo = (vdoRecord) =>
+let saveVdo = (vdoRecord) =>
   Meteor.call('saveVdo', vdoRecord, () =>
     Notifications.success('Vidéo enregistrée', `${vdoRecord.title}`))
 
-checkAndSave = (youtubeId) => {
+let checkAndSave = (youtubeId) => {
   notifBadYoutubeId(youtubeId)
     .then(notifVdoExists)
     .then(notifNoYoutubeData)
