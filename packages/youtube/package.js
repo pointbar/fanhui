@@ -24,7 +24,6 @@ Package.onUse(function(api) {
   api.export(['notifBadYoutubeId'], 'client')
   api.export('Vdos', 'server')
   api.export([
-    'Vdos',
     'youtubeIdCheckLength',
     'queryValueByFieldName',
     'checkTitle',
