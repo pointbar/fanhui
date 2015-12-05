@@ -1,3 +1,6 @@
-Meteor.publish('inseis', () => {
-  return Inseis.find()
+Meteor.publish('inseis', () =>
+  Inseis.find()
+)
+Meteor.methods({
+  isInsei: (insei) => !! Inseis.find({nickSlack: insei}).count()
 })
