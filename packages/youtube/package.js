@@ -11,7 +11,7 @@ Package.onUse(function(api) {
   api.use(['ecmascript', 'mongo'])
   api.use(['iron:router', 'templating', 'session'], 'client')
   api.addFiles('collection.js')
-  api.addFiles(['server/record-vdos.js', 'server/model.js'], 'server')
+  api.addFiles('server/model.js', 'server')
   api.addFiles([
     'client/youtube.html',
     'client/style.css',
@@ -19,7 +19,8 @@ Package.onUse(function(api) {
     'client/list-vdos.html',
     'client/list-vdos.js',
     'client/insert-vdo.html',
-    'client/insert-vdo.js'
+    'client/insert-vdo.js',
+    'client/record-vdos.js'
   ], 'client')
   api.export('Vdos', 'server')
   api.export([
@@ -28,7 +29,8 @@ Package.onUse(function(api) {
     'checkTitle',
     'categoryByTitle',
     'dateByTitle',
-    'rankByTitle'], 'client')
+    'rankByTitle'
+  ], 'client')
 })
 
 Package.onTest(function(api) {
