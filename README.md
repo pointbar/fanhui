@@ -29,7 +29,7 @@
 ETQ FanHui je peux administrer les vidéos non référencées par Youtube afin de les rendre disponibles aux Insei.
 - [x] doit ajouter la vidéo via la référence Youtube.
 - [x] doit récupérer les méta-données de Youtube.
-- [] doit enregistrer la vignette correspondante.
+- [ ] doit enregistrer la vignette correspondante.
 - [x] doit récupérer la date, le numéro et le type des cours par le titre Youtube.
 - [x] doit lister les vidéos en précisant si ce sont des Joseki ou des Fuseki.
 - [x] doit permettre d'effacer une vidéo.
@@ -37,31 +37,31 @@ ETQ FanHui je peux administrer les vidéos non référencées par Youtube afin d
 
 #### 005 - Consulter les pages privatives
 ETQ Insei je peux consulter les informations privées.
-- [] doit permettre de consulter les pages avec mon nickname slack.
-- [] doit rediriger vers une page dédiée les visiteurs non-membres.
+- [ ] doit permettre de consulter les pages avec mon nickname slack.
+- [ ] doit rediriger vers une page dédiée les visiteurs non-membres.
 
 #### 006 - Afficher une vidéo spécifique
 ETQ Insei je peux consulter une vidéo afin de suivre un cours en rediffusion.
-- [] doit permettre l'affichage en plein écran.
-- [] doit s'afficher dans un onglet séparé.
+- [ ] doit permettre l'affichage en plein écran.
+- [ ] doit s'afficher dans un onglet séparé.
 
 #### 007 - Consulter mes informations
 ETQ Insei je peux gérer mes informations.
-- doit permettre de gérer : mail, kgs nickname, kgs rank, ffg rank.
+- [ ] doit permettre de gérer : mail, kgs nickname, kgs rank, ffg rank.
 
 ### Terminées
 
-#### 001 - [x] Afficher des notifications
+#### [x] 001 - Afficher des notifications
 ETQ visiteur je dois être informé des erreurs ou des succès de mes requètes afin de ne pas être dans la confusion.
 - [x] Doit effacer le message dès que l'on change de contexte.
 
-#### 002 - [x] Pages pour les visiteurs extérieurs
+#### [x] 002 - Pages pour les visiteurs extérieurs
 ETQ visiteur extérieur je dois être prévenu que les pages du site ne me sont pas accéssibles afin d'être informé.
 - [x] doit afficher le visuel de l'académie.
 - [x] doit afficher un message pour me prévenir que l'académie est privée.
 - [x] doit afficher un lien pour contacter Fan-Hui.
 
-#### 003 - [x] Consulter les insei
+#### [x] 003 - Consulter les insei
 ETQ FanHui je peux consulter les Insei.
 - [x] doit lister les Insei par noms, prénoms et nickname Slack.
 - [x] doit créer les informations manuellement en attendant de pouvoir les récupérer de slack.
