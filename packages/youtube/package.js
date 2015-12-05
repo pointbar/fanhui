@@ -13,14 +13,17 @@ Package.onUse(function(api) {
   api.addFiles('collection.js')
   api.addFiles('server/model.js', 'server')
   api.addFiles([
-    'client/youtube.html',
+    'client/BO-youtube.html',
+    'client/BO-list-vdos.html',
+    'client/BO-list-vdos.js',
+    'client/BO-insert-vdo.html',
+    'client/BO-insert-vdo.js',
+    'client/BO-record-vdos.js',
+    'client/FO-youtube.html',
+    'client/FO-list-vdos.html',
+    'client/FO-list-vdos.js',
     'client/style.css',
-    'client/router.js',
-    'client/list-vdos.html',
-    'client/list-vdos.js',
-    'client/insert-vdo.html',
-    'client/insert-vdo.js',
-    'client/record-vdos.js'
+    'client/router.js'
   ], 'client')
   api.export('Vdos', 'server')
   api.export([
