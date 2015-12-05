@@ -1,20 +1,23 @@
 <template name="listVdosFO">
-  <div class="col-md-3">
-    <article class="panel panel-success">
-      <header class="panel-heading"><h4>Cours de {{category}}</h4></header>
-      <ul class="list-group panel-body">
-        {{#each vdos}}
-        {{> vdoFO}}
-        {{/each}}
-      </ul>
-    </article>
-  </div>
+  <article class="col-md-12">
+    <ul class="media-list">
+      <hr>
+      {{#each vdos}}
+      {{> vdoFO}}
+      {{/each}}
+    </ul>
+  </article>
 </template>
 
 <template name="vdoFO">
-  <li class="list-group-item">
-    <a href="https://www.youtube.com/watch?v={{video_id}}" target="_blank">
-      Cours n°{{rank}}
-    </a>
+  <li class="col-md-3 vdo col-md-pull-1 col-md-offset-1 vdo">
+    <div class="panel panel-success">
+      <header class="panel-heading">
+        <span class="label panel-title">Cours n° {{rank}} - {{category}}</span>
+      </header>
+      <a href="/player/{{video_id}}" target="_blank" class="thumbnail">
+        <img id="{{video_id}}" src="http://img.youtube.com/vi/{{video_id}}/0.jpg">
+      </a>
+    </div>
   </li>
 </template>

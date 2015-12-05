@@ -68,6 +68,7 @@ ETQ FanHui je peux consulter les Insei.
 
 ### Grainerie
 
+#### - S'authentifier
 #### - Ajouter un SGF
 #### - Visualiser un SGF
 
