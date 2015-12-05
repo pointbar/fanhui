@@ -7,7 +7,7 @@ youtubeIdCheckLength = (youtubeId) =>
   youtubeId.length === 11
 
 checkTitle = (youtubeTitle) =>
-  youtubeTitle.match(/^\d{3}-(?:Joseki|Fuseki)-\d{2}-\d{2}-\d{4}/)
+  youtubeTitle.match(/^\d{3}-(?:Joseki|Fuseki)-\d{2}-\d{2}-\d{4}$/)
 
 categoryByTitle = (youtubeTitle) =>
   youtubeTitle.match(/(?:Joseki)/) && 'Joseki'
