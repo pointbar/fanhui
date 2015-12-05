@@ -3,7 +3,10 @@ Template.listVdos.onCreated(function () {
 })
 
 Template.listVdos.helpers({
-  vdos: () => Vdos.find()
+  vdos: () =>
+    Vdos.find(
+      {category: Template.currentData().category},
+      {sort: {rank: -1}})
 })
 
 Template.listVdos.events({
