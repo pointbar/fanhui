@@ -1,7 +1,11 @@
 Router.route('/admin/vdo/oragefan', {
-  template: 'adminYoutube'
+  template: 'youtubeBO'
 })
 
-Router.route('/vdo/oragefan', {
-  template: 'adminYoutube'
+Meteor.startup(() => {
+  isInsei('pntbr', (elt) => console.log(elt))
+
+  Router.route('/vdo/pntbr', {
+    template: 'youtubeFO'
+  })
 })

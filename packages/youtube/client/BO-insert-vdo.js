@@ -99,7 +99,7 @@ checkAndSave = (youtubeId) => {
     .then(saveVdo)
 }
 
-Template.insertVdo.events({
+Template.insertVdoBO.events({
   'click #btn_save_vdo': (evt) => {
     let youtubeId = document.querySelector('#input_youtube_id').value
     evt.preventDefault()
