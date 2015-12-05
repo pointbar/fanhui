@@ -1,3 +1,7 @@
 Router.route('/admin/vdo/oragefan', {
-  template: 'youtube'
+  template: 'adminYoutube'
+})
+
+Router.route('/vdo/oragefan', {
+  template: 'adminYoutube'
 })
