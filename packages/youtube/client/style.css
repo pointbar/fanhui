@@ -1,0 +1,12 @@
+label.panel-heading {
+  display: block;
+}
+
+#form_insert_video button {
+  margin-bottom: 5px;
+}
+
+#form_insert_video input {
+  margin-left: 15px;
+  margin-bottom: 5px;
+}
