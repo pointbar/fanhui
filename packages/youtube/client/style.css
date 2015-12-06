@@ -10,3 +10,13 @@ label.panel-heading {
   margin-left: 15px;
   margin-bottom: 5px;
 }
+
+li.vdo img {
+  width: 384px;
+  width: 280px;
+}
+
+iframe {
+  width: 800px;
+  height: 600px;
+}

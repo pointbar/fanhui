@@ -1,7 +1,6 @@
 Template.listVdosFO.onCreated(function () {
   this.subscribe('vdos')
 })
-
 Template.listVdosFO.helpers({
   vdos: () =>
     Vdos.find(

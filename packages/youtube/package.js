@@ -5,7 +5,6 @@ Package.describe({
   git: 'https://github.com/goacademie/fanhui',
   documentation: 'README.md'
 })
-
 Package.onUse(function(api) {
   api.versionsFrom('1.2.1')
   api.use(['ecmascript', 'mongo'])
@@ -22,6 +21,7 @@ Package.onUse(function(api) {
     'client/FO-youtube.html',
     'client/FO-list-vdos.html',
     'client/FO-list-vdos.js',
+    'client/FO-player-vdo.html',
     'client/style.css',
     'client/router.js'
   ], 'client')
@@ -35,7 +35,6 @@ Package.onUse(function(api) {
     'rankByTitle'
   ], 'client')
 })
-
 Package.onTest(function(api) {
   api.use(['ecmascript', 'tinytest', 'pntbr:youtube'])
   api.use(['iron:router@1.0.0', 'templating'], 'client')

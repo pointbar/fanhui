@@ -17,3 +17,9 @@ Router.route('/vdo/:insei', {
       this.render('loading')
   }
 })
+Router.route('/vdo/play/:videoId', {
+  template: 'playVdoFO',
+  data: function () {
+    return {video_id: this.params.videoId}
+  }
+})
