@@ -10,8 +10,6 @@ Template.listVdosBO.helpers({
 })
 
 Template.listVdosBO.events({
-  'click .btn_remove_vdo': (event) => {
-    let _id = event.target.id.replace(/btn-/, '')
-    Vdos.remove({_id: _id})
-  }
+  'click .btn_remove_vdo': (event) =>
+    Vdos.remove(event.target.id.replace(/btn-/, ''))
 })
