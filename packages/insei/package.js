@@ -13,12 +13,11 @@ Package.onUse(function(api) {
   api.addFiles(['server/record-inseis.js', 'server/model.js'], 'server')
   api.addFiles([
     'client/router.js',
-    'client/inseis.js',
     'client/list-inseis.html',
     'client/list-inseis.js'
   ], 'client')
-  api.export('isInsei', 'client')
   api.export('Inseis', 'server')
+  api.export('Inseis', 'client')
 })
 Package.onTest(function(api) {
   api.use(['ecmascript', 'tinytest'])
