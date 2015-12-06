@@ -9,7 +9,7 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.2.1')
   api.use(['ecmascript', 'mongo'])
-  api.use(['iron:router', 'templating', 'session'], 'client')
+  api.use(['iron:router', 'templating'], 'client')
   api.addFiles('collection.js')
   api.addFiles('server/model.js', 'server')
   api.addFiles([
