@@ -20,32 +20,31 @@
 ### Packages
 - [gfk-ba/meteor-notifications](https://github.com/gfk-ba/meteor-notifications/blob/master/README.md)
 - [Iron Router](http://iron-meteor.github.io/iron-router/)
+- [aldeed:http](https://github.com/aldeed/meteor-http-extras)
 
 ## Backlog de produit
 
 ### En cours
 
-#### 004 - Administrer les vidéos Youtube
-ETQ FanHui je peux administrer les vidéos non référencées par Youtube afin de les rendre disponibles aux Insei.
-- [x] doit ajouter la vidéo via la référence Youtube.
-- [x] doit récupérer les méta-données de Youtube.
-- [ ] doit enregistrer la vignette correspondante.
-- [x] doit récupérer la date, le numéro et le type des cours par le titre Youtube.
-- [x] doit lister les vidéos en précisant si ce sont des Joseki ou des Fuseki.
-- [x] doit permettre d'effacer une vidéo.
-- [x] doit enregistrer des vidéos par défaut quand les vidéos ne sont pas présentes.
-
 #### 005 - Consulter les pages privatives
 ETQ Insei je peux consulter les informations privées.
-- [ ] doit permettre de consulter les pages avec mon nickname slack.
-- [ ] doit rediriger vers une page dédiée les visiteurs non-membres.
+- [x] doit permettre de consulter les pages avec mon nickname slack.
+- [ ] doit permettre de consulter la page des membres.
+- [x] doit rediriger vers une page dédiée les visiteurs non-membres.
+- [x] doit afficher un loading.
 
-#### 006 - Afficher une vidéo spécifique
+#### 006 - Naviguer entre les modules
+ETQ Membre je peux consulter les différents modules du site.
+- [ ] doit renvoyer vers les pages : membres et vidéos.
+- [ ] doit renvoyer vers les pages d'administration.
+- [ ] doit tenir compte des droits.
+
+#### 007 - Afficher une vidéo spécifique
 ETQ Insei je peux consulter une vidéo afin de suivre un cours en rediffusion.
 - [ ] doit permettre l'affichage en plein écran.
 - [ ] doit s'afficher dans un onglet séparé.
 
-#### 007 - Consulter mes informations
+#### 008 - Consulter mes informations
 ETQ Insei je peux gérer mes informations.
 - [ ] doit permettre de gérer : mail, kgs nickname, kgs rank, ffg rank.
 
@@ -66,9 +65,20 @@ ETQ FanHui je peux consulter les Insei.
 - [x] doit lister les Insei par noms, prénoms et nickname Slack.
 - [x] doit créer les informations manuellement en attendant de pouvoir les récupérer de slack.
 
+#### 004 - Administrer les vidéos Youtube
+ETQ FanHui je peux administrer les vidéos non référencées par Youtube afin de les rendre disponibles aux Insei.
+- [x] doit ajouter la vidéo via la référence Youtube.
+- [x] doit récupérer les méta-données de Youtube.
+- [x] doit enregistrer la vignette correspondante.
+- [x] doit récupérer la date, le numéro et le type des cours par le titre Youtube.
+- [x] doit lister les vidéos en précisant si ce sont des Joseki ou des Fuseki.
+- [x] doit permettre d'effacer une vidéo.
+- [x] doit enregistrer des vidéos par défaut quand les vidéos ne sont pas présentes.
+
 ### Grainerie
 
 #### - S'authentifier
+#### - Envoyer un message sur slack
 #### - Ajouter un SGF
 #### - Visualiser un SGF
 

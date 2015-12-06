@@ -3,7 +3,20 @@ Router.route('/admin/vdo/oragefan', {
 })
 Meteor.startup(() => {
   // isInsei('pntbr', (elt) => console.log(elt))
-  Router.route('/vdo/pntbr', {
-    template: 'youtubeFO'
+  Router.route('/vdo/:insei', {
+    template: 'youtubeFO',
+    subscriptions: function () {
+      return [
+        Meteor.subscribe('isInsei', this.params.insei),
+        Meteor.subscribe('vdos')]
+    },
+    action: function () {
+      if (this.ready()) {
+        if (typeof Inseis.findOne() === 'undefined')
+          Router.go('/')
+        this.render()
+      } else
+        this.render('loading')
+    }
   })
 })

@@ -1,6 +1,6 @@
 Meteor.publish('inseis', () =>
   Inseis.find()
 )
-Meteor.methods({
-  isInsei: (insei) => !! Inseis.find({nickSlack: insei}).count()
-})
+Meteor.publish('isInsei', (insei) =>
+  Inseis.find({nickSlack: insei})
+)

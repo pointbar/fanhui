@@ -1,7 +1,3 @@
-Template.listVdosBO.onCreated(function () {
-  this.subscribe('vdos')
-})
-
 Template.listVdosBO.helpers({
   vdos: () =>
     Vdos.find(
