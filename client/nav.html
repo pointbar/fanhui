@@ -1,0 +1,28 @@
+<Template name="nav">
+  <ul class="nav nav-tabs">
+    {{#if isInsei}}
+      <li>
+        <a href="/vdo/{{user}}">
+          <button type="button" class="btn btn-success btn-lg glyphicon glyphicon-film"></button>
+        </a>
+      </li>
+      <li>
+        <a href="/insei/{{user}}">
+          <button type="button" class="btn btn-success btn-lg glyphicon glyphicon-user"></button>
+        </a>
+      </li>
+    {{/if}}
+    {{#if isSensei}}
+      <li>
+        <a href="/admin/vdo/oragefan">
+          <button type="button" class="btn btn-info btn-lg glyphicon glyphicon-film"></button>
+        </a>
+      </li>
+      <li>
+        <a href="/admin/insei/oragefan">
+          <button type="button" class="btn btn-info btn-lg glyphicon glyphicon-user"></button>
+        </a>
+      </li>
+    {{/if}}
+  </ul>
+</Template>

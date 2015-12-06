@@ -26,13 +26,6 @@
 
 ### En cours
 
-#### 005 - Consulter les pages privatives
-ETQ Insei je peux consulter les informations privées.
-- [x] doit permettre de consulter les pages avec mon nickname slack.
-- [ ] doit permettre de consulter la page des membres.
-- [x] doit rediriger vers une page dédiée les visiteurs non-membres.
-- [x] doit afficher un loading.
-
 #### 006 - Naviguer entre les modules
 ETQ Membre je peux consulter les différents modules du site.
 - [ ] doit renvoyer vers les pages : membres et vidéos.
@@ -65,7 +58,7 @@ ETQ FanHui je peux consulter les Insei.
 - [x] doit lister les Insei par noms, prénoms et nickname Slack.
 - [x] doit créer les informations manuellement en attendant de pouvoir les récupérer de slack.
 
-#### 004 - Administrer les vidéos Youtube
+#### [x] 004 - Administrer les vidéos Youtube
 ETQ FanHui je peux administrer les vidéos non référencées par Youtube afin de les rendre disponibles aux Insei.
 - [x] doit ajouter la vidéo via la référence Youtube.
 - [x] doit récupérer les méta-données de Youtube.
@@ -74,6 +67,13 @@ ETQ FanHui je peux administrer les vidéos non référencées par Youtube afin d
 - [x] doit lister les vidéos en précisant si ce sont des Joseki ou des Fuseki.
 - [x] doit permettre d'effacer une vidéo.
 - [x] doit enregistrer des vidéos par défaut quand les vidéos ne sont pas présentes.
+
+#### [x] 005 - Consulter les pages privatives
+ETQ Insei je peux consulter les informations privées.
+- [x] doit permettre de consulter les pages avec mon nickname slack.
+- [x] doit permettre de consulter la page des membres.
+- [x] doit rediriger vers une page dédiée les visiteurs non-membres.
+- [x] doit afficher un loading.
 
 ### Grainerie
 

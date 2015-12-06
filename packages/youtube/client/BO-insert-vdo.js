@@ -54,7 +54,8 @@ const buildVdoRecord = (youtubeData) =>
     resolve({
       video_id: queryValueByFieldName('video_id', youtubeData.content),
       title: queryValueByFieldName('title', youtubeData.content)
-    }))
+    })
+  )
 const notifBadTitle = (vdoRecord) =>
   new Promise((resolve, reject) => {
     if (! checkTitle(vdoRecord.title)) {
@@ -76,7 +77,8 @@ const addThumbnail = ({title, video_id}) =>
           title: title,
           thumbnail: thumbnail})
       }
-    }))
+    })
+  )
 const finalizeVdoRecord = ({title, video_id, thumbnail}) =>
   new Promise((resolve) =>
     resolve({
@@ -86,7 +88,8 @@ const finalizeVdoRecord = ({title, video_id, thumbnail}) =>
       category: categoryByTitle(title),
       date: dateByTitle(title),
       rank: rankByTitle(title)
-    }))
+    })
+  )
 const saveVdo = (vdoRecord) =>
   Meteor.call('saveVdo', vdoRecord, () =>
     Notifications.success('Vidéo enregistrée', `${vdoRecord.title}`))
