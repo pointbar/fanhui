@@ -1,15 +1,15 @@
 if (Meteor.isClient) {
   Tinytest.add('Check -007-Fuseki-07-12-2015- as title.', (test) =>
-    test.isTrue(checkTitle('007-Fuseki-07-12-2015'))
+    test.isTrue(checkVideoTitle('007-Fuseki-07-12-2015'))
   )
   Tinytest.add('Check -007-Juseki-07-12-2015- as not a title.', (test) =>
-    test.isFalse(checkTitle('007-Juseki-07-12-2015'))
+    test.isFalse(checkVideoTitle('007-Juseki-07-12-2015'))
   )
   Tinytest.add('Check -07-Fuseki-07-12-2015- as not a title.', (test) =>
-    test.isFalse(checkTitle('07-Fuseki-07-12-2015'))
+    test.isFalse(checkVideoTitle('07-Fuseki-07-12-2015'))
   )
   Tinytest.add('Check -007-Fuseki-07-122015- as not a title.', (test) =>
-    test.isFalse(checkTitle('007-Fuseki-07-122015'))
+    test.isFalse(checkVideoTitle('007-Fuseki-07-122015'))
   )
   Tinytest.add('Extract Date in title.', (test) =>
     test.equal(
@@ -29,7 +29,7 @@ if (Meteor.isClient) {
       queryValueByFieldName('video_id', youtubeData), 'BMHebTGYS_0')
   })
   Tinytest.add('Check if "1234" is not correct.', (test) =>
-    test.isFalse(youtubeIdCheckLength(1234))
+    test.isFalse(checkVideoIdLength(1234))
   )
   Tinytest.addAsync(
     'Check the "AxRg12345tG" reférence exists in our collection.',

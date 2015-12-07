@@ -12,8 +12,8 @@ let vdos = [
   {video_id: '8AaZK9xHEhM'},
   {video_id: 'd0J_CBnb2GI'},
   {video_id: 'gTdp1iOcDKc'},
-  {video_id: 'hQFeNt0Sv4c'},
-  {video_id: 'GS37cPnRqTs'}
+  {video_id: 'GS37cPnRqTs'},
+  {video_id: 'hQFeNt0Sv4c'}
 ]
 
 Meteor.subscribe('vdos', () =>

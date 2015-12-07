@@ -27,9 +27,9 @@ Package.onUse(function(api) {
   ], 'client')
   api.export('Vdos', 'server')
   api.export([
-    'youtubeIdCheckLength',
+    'checkVideoIdLength',
     'queryValueByFieldName',
-    'checkTitle',
+    'checkVideoTitle',
     'categoryByTitle',
     'dateByTitle',
     'rankByTitle'

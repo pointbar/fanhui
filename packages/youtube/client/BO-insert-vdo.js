@@ -1,46 +1,64 @@
+/*
+ *  Extract value from a Youtube JSON response
+*/
 queryValueByFieldName = (fieldName, query) =>
   query.split('&')
     .filter(parameter => parameter.match(`^${fieldName}=`))[0]
     .split('=')[1]
-youtubeIdCheckLength = (youtubeId) =>
-  youtubeId.length === 11
-checkTitle = (youtubeTitle) =>
-  youtubeTitle.match(/^\d{3}-(?:Joseki|Fuseki)-\d{2}-\d{2}-\d{4}$/)
-categoryByTitle = (youtubeTitle) =>
-  youtubeTitle.match(/(?:Joseki)/) && 'Joseki'
-  || youtubeTitle.match(/(?:Fuseki)/) && 'Fuseki'
-dateByTitle = (youtubeTitle) => {
-  const [,, day, month, year] = youtubeTitle.split('-')
+/*
+ *  Check the length of a Youtube Id
+*/
+checkVideoIdLength = (videoId) =>
+  videoId.length === 11
+/*
+ *  Check the Youtube title structure
+*/
+checkVideoTitle = (videoTitle) =>
+  videoTitle.match(/^\d{3}-(?:Joseki|Fuseki)-\d{2}-\d{2}-\d{4}$/)
+/*
+ *  Build a catgory with Youtube title
+*/
+categoryByTitle = (videoTitle) =>
+  videoTitle.match(/(?:Joseki)/) && 'Joseki'
+  || videoTitle.match(/(?:Fuseki)/) && 'Fuseki'
+/*
+ *  Build a date with Youtube title
+*/
+dateByTitle = (videoTitle) => {
+  const [,, day, month, year] = videoTitle.split('-')
   return new Date(+year, +month - 1, +day)
 }
-rankByTitle = (youtubeTitle) =>
-  +youtubeTitle.match(/^\d{3}/)[0]
+/*
+ *  Build a rank with Youtube title
+*/
+rankByTitle = (videoTitle) =>
+  +videoTitle.match(/^\d{3}/)[0]
 /*
  * FUNNEL composed by promises
  */
-let notifBadYoutubeId = (youtubeId) =>
+let notifBadVideoId = (videoId) =>
   new Promise((resolve, reject) => {
-    if (! youtubeIdCheckLength(youtubeId)) {
+    if (! checkVideoIdLength(videoId)) {
       Notifications.warn(
         'Problème de référence Youtube', 'Une référence comporte 11 signes.')
       reject()
     } else
-      resolve(youtubeId)
+      resolve(videoId)
   })
-const notifVdoExists = (youtubeId) =>
+const notifVdoExists = (videoId) =>
   new Promise((resolve, reject) =>
-    Meteor.call('isVdoExists', youtubeId, (err, isExists) => {
+    Meteor.call('isVdoExists', videoId, (err, isExists) => {
       if (isExists) {
         Notifications.warn(
-          'Problème de référence Youtube', `${youtubeId} - est déjà présente.`)
+          'Problème de référence Youtube', `${videoId} - est déjà présente.`)
         reject()
       } else
-        resolve(youtubeId)
+        resolve(videoId)
     })
   )
-const notifNoYoutubeData = (youtubeId) =>
+const notifNoYoutubeData = (videoId) =>
   new Promise((resolve, reject) =>
-    Meteor.call('collectYoutubeData', youtubeId, (err, youtubeData) => {
+    Meteor.call('collectYoutubeData', videoId, (err, youtubeData) => {
       if (err) {
         Notifications.warn(
           'Problème de référence Youtube', `${err.reason}`)
@@ -56,9 +74,9 @@ const buildVdoRecord = (youtubeData) =>
       title: queryValueByFieldName('title', youtubeData.content)
     })
   )
-const notifBadTitle = (vdoRecord) =>
+const notifBadVideoTitle = (vdoRecord) =>
   new Promise((resolve, reject) => {
-    if (! checkTitle(vdoRecord.title)) {
+    if (! checkVideoTitle(vdoRecord.title)) {
       Notifications.warn('Problème de titre Youtube', `${vdoRecord.title}`)
       reject()
     }
@@ -93,21 +111,21 @@ const finalizeVdoRecord = ({title, video_id, thumbnail}) =>
 const saveVdo = (vdoRecord) =>
   Meteor.call('saveVdo', vdoRecord, () =>
     Notifications.success('Vidéo enregistrée', `${vdoRecord.title}`))
-checkAndSave = (youtubeId) => {
-  notifBadYoutubeId(youtubeId)
+checkAndSave = (videoId) => {
+  notifBadVideoId(videoId)
     .then(notifVdoExists)
     .then(notifNoYoutubeData)
     .then(buildVdoRecord)
-    .then(notifBadTitle)
+    .then(notifBadVideoTitle)
     .then(addThumbnail)
     .then(finalizeVdoRecord)
     .then(saveVdo)
 }
 Template.insertVdoBO.events({
   'click #btn_save_vdo': (evt) => {
-    const youtubeId = document.querySelector('#input_youtube_id').value
+    const videoId = document.querySelector('#input_youtube_id').value
     evt.preventDefault()
-    checkAndSave(youtubeId)
+    checkAndSave(videoId)
     document.querySelector('#input_youtube_id').value = ''
   }
 })
