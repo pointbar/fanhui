@@ -26,9 +26,15 @@
 
 #### En cours
 
-##### 008 - Consulter mes informations
+##### 009 - Gérer et administrer les vidéos des tournois
+ETQ insei je peux consulter les vidéos de tournois.
+- [ ] doit permettre de visualiser les vidéos par ronde et par league.
+- [ ] doit permettre de visualiser les vidéos sans les cours.
+
+##### 010 - Consulter mes informations
 ETQ Insei je peux gérer mes informations.
 - [ ] doit permettre de gérer : mail, kgs nickname, kgs rank, ffg rank.
+- [ ] doit permettre de lister les vidéos me concernant.
 
 #### Terminées
 
@@ -75,6 +81,11 @@ ETQ Insei je peux consulter une vidéo afin de suivre un cours en rediffusion.
 - [x] doit permettre l'affichage en plein écran.
 - [x] doit s'afficher dans un onglet séparé.
 
+##### [x] 008 - Administrer les vidéos des tournois
+ETQ FanHui je peux administrer les vidéos des tournois afin de proposer des parties commentées.
+- [x] doit permettre de gérer : joueurs, leagues, rondes.
+- [x] doit permettre de vérifier que les joueurs existent.
+
 #### Grainerie
 
 ##### - S'authentifier
@@ -89,10 +100,16 @@ ETQ Insei je peux consulter une vidéo afin de suivre un cours en rediffusion.
 - Doit être accessible que pour les inseis pour les pages de cours
 
 ### TODO
-- Sinon.js
 - secure BD
+- subscribe/publish
 - Slack
+- Sinon.js
 
 ## Licence
-En cours
+Copyright (c) 2016 FAN HUI et SCOPYLEFT
 
+L'autorisation est accordée, gracieusement, à toute personne acquérant une copie de cette bibliothèque et des fichiers de documentation associés (la "Bibliothèque"), de commercialiser la Bibliothèque sans restriction, notamment les droits d'utiliser, de copier, de modifier, de fusionner, de publier, de distribuer, de sous-licencier et / ou de vendre des copies de la Bibliothèque, ainsi que d'autoriser les personnes auxquelles la Bibliothèque est fournie à le faire, sous réserve des conditions suivantes :
+
+La déclaration de copyright ci-dessus et la présente autorisation doivent être incluses dans toutes copies ou parties substantielles de la Bibliothèque.
+
+LA BIBLIOTHÈQUE EST FOURNIE "TELLE QUELLE", SANS GARANTIE D'AUCUNE SORTE, EXPLICITE OU IMPLICITE, NOTAMMENT SANS GARANTIE DE QUALITÉ MARCHANDE, D’ADÉQUATION À UN USAGE PARTICULIER ET D'ABSENCE DE CONTREFAÇON. EN AUCUN CAS, LES AUTEURS OU TITULAIRES DU DROIT D'AUTEUR NE SERONT RESPONSABLES DE TOUT DOMMAGE, RÉCLAMATION OU AUTRE RESPONSABILITÉ, QUE CE SOIT DANS LE CADRE D'UN CONTRAT, D'UN DÉLIT OU AUTRE, EN PROVENANCE DE, CONSÉCUTIF À OU EN RELATION AVEC LA BIBLIOTHÈQUE OU SON UTILISATION, OU AVEC D'AUTRES ÉLÉMENTS DE LA BIBLIOTHÈQUE.
