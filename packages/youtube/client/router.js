@@ -10,7 +10,7 @@ Router.route('/vdo/:insei', {
   },
   action: function () {
     if (this.ready()) {
-      if (typeof Inseis.findOne() === 'undefined')
+      if (typeof Inseis.findOne({nickSlack: this.params.insei}) === 'undefined')
         Router.go('/')
       this.render()
     } else
