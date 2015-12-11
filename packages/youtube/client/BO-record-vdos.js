@@ -1,4 +1,5 @@
-let vdos = [
+const vdos = [
+  // Fuseki
   {video_id: 'CaBPn3vZkRs'},
   {video_id: 'Xjrb1kDnUYY'},
   {video_id: 'Jw8HYF1ZpJM'},
@@ -13,8 +14,8 @@ let vdos = [
   {video_id: 'd0J_CBnb2GI'},
   {video_id: 'gTdp1iOcDKc'},
   {video_id: 'GS37cPnRqTs'},
-  {video_id: 'hQFeNt0Sv4c'}
+  {video_id: 'hQFeNt0Sv4c'},
+  {video_id: '9ziMKccj91g'}   // Tournament
 ]
-
 Meteor.subscribe('vdos', () =>
   (! Vdos.find().count()) && vdos.map(({video_id}) => checkAndSave(video_id)))
