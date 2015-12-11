@@ -27,12 +27,21 @@ Package.onUse(function(api) {
   ], 'client')
   api.export('Vdos', 'server')
   api.export([
-    'checkVideoIdLength',
-    'queryValueByFieldName',
-    'checkVideoTitle',
+    'Vdos',
+    'blackPlayerByTitle',
     'categoryByTitle',
+    'checkIsMember',
+    'checkVideoIdLength',
+    'checkVideoStageByTitle',
+    'checkVideoRoundByTitle',
+    'completeRoundRecord',
+    'completeStageRecord',
     'dateByTitle',
-    'rankByTitle'
+    'leagueByTitle',
+    'queryValueByFieldName',
+    'rankByTitle',
+    'roundByTitle',
+    'whitePlayerByTitle'
   ], 'client')
 })
 Package.onTest(function(api) {
