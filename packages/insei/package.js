@@ -13,15 +13,22 @@ Package.onUse(function(api) {
   api.addFiles(['server/record-inseis.js', 'server/model.js'], 'server')
   api.addFiles([
     'client/router.js',
+    'client/inseis.js',
     'client/list-inseis.html',
     'client/list-inseis.js'
   ], 'client')
   api.export('Inseis', 'server')
-  api.export('Inseis', 'client')
+  api.export([
+    'Inseis',
+    'isInsei',
+    'isSensei',
+    'nickSlackFromUrl'
+  ], 'client')
 })
 Package.onTest(function(api) {
   api.use(['ecmascript', 'tinytest'])
   api.use(['iron:router@1.0.0', 'templating'], 'client')
   api.use('pntbr:insei')
-  api.addFiles(['tests-stub.js', 'tests-insei.js'])
+  api.addFiles('tests-stubs.js')
+  api.addFiles('tests-insei.js', 'client')
 })

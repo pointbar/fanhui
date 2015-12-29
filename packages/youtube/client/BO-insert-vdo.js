@@ -1,46 +1,67 @@
+/*
+ *  Extract value from a Youtube JSON response
+*/
 queryValueByFieldName = (fieldName, query) =>
   query.split('&')
     .filter(parameter => parameter.match(`^${fieldName}=`))[0]
     .split('=')[1]
-youtubeIdCheckLength = (youtubeId) =>
-  youtubeId.length === 11
-checkTitle = (youtubeTitle) =>
-  youtubeTitle.match(/^\d{3}-(?:Joseki|Fuseki)-\d{2}-\d{2}-\d{4}$/)
-categoryByTitle = (youtubeTitle) =>
-  youtubeTitle.match(/(?:Joseki)/) && 'Joseki'
-  || youtubeTitle.match(/(?:Fuseki)/) && 'Fuseki'
-dateByTitle = (youtubeTitle) => {
-  const [,, day, month, year] = youtubeTitle.split('-')
-  return new Date(+year, +month - 1, +day)
+/*
+ *  Check the length of a Youtube Id
+*/
+checkVideoIdLength = (videoId) =>
+  !! (videoId.length === 11)
+/*
+ *  Complete an object for course Joseki or Fuseki
+*/
+completeCourseRecord = (videoRecord) => {
+  const ytTitle = new YoutubeTitle(videoRecord.title)
+  return Object.assign(videoRecord, {
+    category: ytTitle.getCategory(),
+    date: ytTitle.getDate(),
+    rank: ytTitle.getRank()
+  })
 }
-rankByTitle = (youtubeTitle) =>
-  +youtubeTitle.match(/^\d{3}/)[0]
+/*
+ *  Complete an object for course Joseki or Fuseki
+*/
+completeRoundRecord = (videoRecord) => {
+  const ytTitle = new YoutubeTitle(videoRecord.title)
+  return Object.assign(videoRecord, {
+    category: ytTitle.getCategory(),
+    date: ytTitle.getDate(),
+    rank: ytTitle.getRank(),
+    blackPlayer: ytTitle.getBlackPlayer(),
+    whitePlayer: ytTitle.getWhitePlayer(),
+    round: ytTitle.getRound(),
+    league: ytTitle.getLeague()
+  })
+}
 /*
  * FUNNEL composed by promises
  */
-let notifBadYoutubeId = (youtubeId) =>
+const notifVideoId = (videoId) =>
   new Promise((resolve, reject) => {
-    if (! youtubeIdCheckLength(youtubeId)) {
+    if (! checkVideoIdLength(videoId)) {
       Notifications.warn(
         'Problème de référence Youtube', 'Une référence comporte 11 signes.')
       reject()
     } else
-      resolve(youtubeId)
+      resolve(videoId)
   })
-const notifVdoExists = (youtubeId) =>
+const notifVideoExists = (videoId) =>
   new Promise((resolve, reject) =>
-    Meteor.call('isVdoExists', youtubeId, (err, isExists) => {
+    Meteor.call('isVdoExists', videoId, (err, isExists) => {
       if (isExists) {
         Notifications.warn(
-          'Problème de référence Youtube', `${youtubeId} - est déjà présente.`)
+          'Problème de référence Youtube', `${videoId} - est déjà présente.`)
         reject()
       } else
-        resolve(youtubeId)
+        resolve(videoId)
     })
   )
-const notifNoYoutubeData = (youtubeId) =>
+const notifYoutubeData = (videoId) =>
   new Promise((resolve, reject) =>
-    Meteor.call('collectYoutubeData', youtubeId, (err, youtubeData) => {
+    Meteor.call('collectYoutubeData', videoId, (err, youtubeData) => {
       if (err) {
         Notifications.warn(
           'Problème de référence Youtube', `${err.reason}`)
@@ -49,65 +70,85 @@ const notifNoYoutubeData = (youtubeId) =>
         resolve(youtubeData)
     })
   )
-const buildVdoRecord = (youtubeData) =>
+const buildVideoRecord = (youtubeData) =>
   new Promise((resolve) =>
     resolve({
       video_id: queryValueByFieldName('video_id', youtubeData.content),
       title: queryValueByFieldName('title', youtubeData.content)
     })
   )
-const notifBadTitle = (vdoRecord) =>
+const notifVideoTitle = (videoRecord) =>
   new Promise((resolve, reject) => {
-    if (! checkTitle(vdoRecord.title)) {
-      Notifications.warn('Problème de titre Youtube', `${vdoRecord.title}`)
+    const ytTitle = new YoutubeTitle(videoRecord.title)
+    if (! ytTitle.isVideoCourse() && ! ytTitle.isVideoRound()) {
+      Notifications.warn('Problème de titre Youtube', `${ytTitle.title}`)
       reject()
     }
-    resolve(vdoRecord)
+    resolve(videoRecord)
   })
-const addThumbnail = ({title, video_id}) =>
+const notifPlayer = (videoRecord) =>
+  new Promise((resolve, reject) => {
+    const ytTitle = new YoutubeTitle(videoRecord.title)
+    // Courses videos are not concerned
+    if (ytTitle.isVideoCourse())
+      resolve(videoRecord)
+    else {
+      Meteor.subscribe('isInsei', 'pntbr', () => {
+        const blackPlayer = ytTitle.getBlackPlayer
+        const whitePlayer = ytTitle.getWhitePlayer
+        if (whitePlayer === Inseis.findOne({nickSlack: whitePlayer})) {
+          Notifications.warn(
+            `Le joueur blanc : ${whitePlayer} n'est pas membre de l'académie.`)
+          reject()
+        }
+        if (blackPlayer === Inseis.findOne({nickSlack: blackPlayer})) {
+          Notifications.warn(
+            `Le joueur noir : ${blackPlayer} n'est pas membre de l'académie.`)
+          reject()
+        }
+        resolve(videoRecord)
+      })
+    }
+  })
+const addThumbnail = (videoRecord) =>
   new Promise((resolve, reject) =>
-    Meteor.call('getYoutubeThumbnail', video_id, (err, thumbnail) => {
-      if (err) {
-        Notifications.warn(
-          'Problème de vignette Youtube', `${err.reason}`)
-        reject()
-      } else {
-        resolve({
-          video_id: video_id,
-          title: title,
-          thumbnail: thumbnail})
-      }
-    })
+    Meteor.call('getYoutubeThumbnail', videoRecord.video_id,
+      (err, thumbnail) => {
+        if (err) {
+          Notifications.warn(
+            'Problème de vignette Youtube', `${err.reason}`)
+          reject()
+        } else
+          resolve(Object.assign(videoRecord, {thumbnail: thumbnail}))
+      })
   )
-const finalizeVdoRecord = ({title, video_id, thumbnail}) =>
-  new Promise((resolve) =>
-    resolve({
-      video_id: video_id,
-      title: title,
-      thumbnail: thumbnail,
-      category: categoryByTitle(title),
-      date: dateByTitle(title),
-      rank: rankByTitle(title)
-    })
-  )
-const saveVdo = (vdoRecord) =>
-  Meteor.call('saveVdo', vdoRecord, () =>
-    Notifications.success('Vidéo enregistrée', `${vdoRecord.title}`))
-checkAndSave = (youtubeId) => {
-  notifBadYoutubeId(youtubeId)
-    .then(notifVdoExists)
-    .then(notifNoYoutubeData)
-    .then(buildVdoRecord)
-    .then(notifBadTitle)
+const finalizeVideoRecord = (videoRecord) =>
+  new Promise((resolve) => {
+    if (checkVideoRoundByTitle(videoRecord.title))
+      resolve(completeRoundRecord(videoRecord))
+    if (checkVideoCourseByTitle(videoRecord.title))
+      resolve(completeCourseRecord(videoRecord))
+  })
+const saveVideo = (videoRecord) =>
+  Meteor.call('saveVdo', videoRecord, () =>
+    Notifications.success('Vidéo enregistrée', `${videoRecord.title}`)
+)
+checkAndSave = (videoId) => {
+  notifVideoId(videoId)
+    .then(notifVideoExists)
+    .then(notifYoutubeData)
+    .then(buildVideoRecord)
+    .then(notifVideoTitle)
+    .then(finalizeVideoRecord)
+    .then(notifPlayer)
     .then(addThumbnail)
-    .then(finalizeVdoRecord)
-    .then(saveVdo)
+    .then(saveVideo)
 }
 Template.insertVdoBO.events({
   'click #btn_save_vdo': (evt) => {
-    const youtubeId = document.querySelector('#input_youtube_id').value
+    const videoId = document.querySelector('#input_youtube_id').value
     evt.preventDefault()
-    checkAndSave(youtubeId)
+    checkAndSave(videoId)
     document.querySelector('#input_youtube_id').value = ''
   }
 })

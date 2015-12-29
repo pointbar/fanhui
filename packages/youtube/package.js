@@ -5,7 +5,6 @@ Package.describe({
   git: 'https://github.com/goacademie/fanhui',
   documentation: 'README.md'
 })
-
 Package.onUse(function(api) {
   api.versionsFrom('1.2.1')
   api.use(['ecmascript', 'mongo'])
@@ -13,6 +12,7 @@ Package.onUse(function(api) {
   api.addFiles('collection.js')
   api.addFiles('server/model.js', 'server')
   api.addFiles([
+    'client/Youtube-title.js',
     'client/BO-youtube.html',
     'client/BO-list-vdos.html',
     'client/BO-list-vdos.js',
@@ -22,22 +22,24 @@ Package.onUse(function(api) {
     'client/FO-youtube.html',
     'client/FO-list-vdos.html',
     'client/FO-list-vdos.js',
+    'client/FO-player-vdo.html',
     'client/style.css',
     'client/router.js'
   ], 'client')
   api.export('Vdos', 'server')
   api.export([
-    'youtubeIdCheckLength',
-    'queryValueByFieldName',
-    'checkTitle',
-    'categoryByTitle',
-    'dateByTitle',
-    'rankByTitle'
+    'Vdos',
+    'YoutubeTitle',
+    'checkIsMember',
+    'checkVideoIdLength',
+    'completeRoundRecord',
+    'completeCourseRecord',
+    'queryValueByFieldName'
   ], 'client')
 })
-
 Package.onTest(function(api) {
   api.use(['ecmascript', 'tinytest', 'pntbr:youtube'])
   api.use(['iron:router@1.0.0', 'templating'], 'client')
-  api.addFiles(['tests-stubs.js', 'tests-youtube.js'])
+  api.addFiles('tests-stubs.js')
+  api.addFiles('tests-YoutubeTitle.js', 'client')
 })
