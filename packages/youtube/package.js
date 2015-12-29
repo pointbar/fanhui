@@ -12,6 +12,7 @@ Package.onUse(function(api) {
   api.addFiles('collection.js')
   api.addFiles('server/model.js', 'server')
   api.addFiles([
+    'client/Youtube-title.js',
     'client/BO-youtube.html',
     'client/BO-list-vdos.html',
     'client/BO-list-vdos.js',
@@ -28,24 +29,17 @@ Package.onUse(function(api) {
   api.export('Vdos', 'server')
   api.export([
     'Vdos',
-    'blackPlayerByTitle',
-    'categoryByTitle',
+    'YoutubeTitle',
     'checkIsMember',
     'checkVideoIdLength',
-    'checkVideoStageByTitle',
-    'checkVideoRoundByTitle',
     'completeRoundRecord',
-    'completeStageRecord',
-    'dateByTitle',
-    'leagueByTitle',
-    'queryValueByFieldName',
-    'rankByTitle',
-    'roundByTitle',
-    'whitePlayerByTitle'
+    'completeCourseRecord',
+    'queryValueByFieldName'
   ], 'client')
 })
 Package.onTest(function(api) {
   api.use(['ecmascript', 'tinytest', 'pntbr:youtube'])
   api.use(['iron:router@1.0.0', 'templating'], 'client')
-  api.addFiles(['tests-stubs.js', 'tests-youtube.js'])
+  api.addFiles('tests-stubs.js')
+  api.addFiles('tests-YoutubeTitle.js', 'client')
 })
