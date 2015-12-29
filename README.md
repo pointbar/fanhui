@@ -31,6 +31,7 @@
 ETQ insei je peux consulter les vidéos de tournois.
 - [ ] doit permettre de visualiser les vidéos par ronde et par league.
 - [ ] doit permettre de visualiser les vidéos sans les cours.
+- [ ] doit permettre de visualiser le nom des joueurs.
 
 ##### 010 - Consulter mes informations
 ETQ Insei je peux gérer mes informations.

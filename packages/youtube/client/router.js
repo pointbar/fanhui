@@ -1,6 +1,12 @@
 Router.route('/admin/vdo/oragefan', {
   template: 'youtubeBO'
 })
+Router.route('/vdo/play/:videoId', {
+  template: 'playVdoFO',
+  data: function () {
+    return {video_id: this.params.videoId}
+  }
+})
 Router.route('/vdo/:type/:insei', {
   subscriptions: function () {
     return [
@@ -14,11 +20,5 @@ Router.route('/vdo/:type/:insei', {
       this.render(this.params.type)
     } else
       this.render('loading')
-  }
-})
-Router.route('/vdo/play/:videoId', {
-  template: 'playVdoFO',
-  data: function () {
-    return {video_id: this.params.videoId}
   }
 })

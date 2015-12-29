@@ -11,11 +11,6 @@ queryValueByFieldName = (fieldName, query) =>
 checkVideoIdLength = (videoId) =>
   !! (videoId.length === 11)
 /*
- *  Check the Youtube title structure
-*/
-checkIsMember = (nickSlack) => {
-}
-/*
  *  Complete an object for course Joseki or Fuseki
 */
 completeCourseRecord = (videoRecord) => {
