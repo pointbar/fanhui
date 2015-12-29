@@ -21,6 +21,7 @@
 - [gfk-ba/meteor-notifications](https://github.com/gfk-ba/meteor-notifications/blob/master/README.md)
 - [Iron Router](http://iron-meteor.github.io/iron-router/)
 - [aldeed:http](https://github.com/aldeed/meteor-http-extras)
+- [fortawesome:fontawesome](https://github.com/MeteorPackaging/Font-Awesome/)
 
 ### Backlog de produit
 
