@@ -104,6 +104,7 @@ ETQ FanHui je peux administrer les vidéos des tournois afin de proposer des par
 ### TODO
 - secure BD
 - subscribe/publish
+- backup vdo
 - Slack
 - Sinon.js
 

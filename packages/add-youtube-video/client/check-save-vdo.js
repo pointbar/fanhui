@@ -128,17 +128,6 @@ const addThumbnail = (videoRecord) =>
           resolve(Object.assign(videoRecord, {thumbnail: thumbnail}))
       })
   )
-<<<<<<< HEAD:packages/youtube/client/BO-insert-vdo.js
-=======
-const finalizeVideoRecord = (videoRecord) =>
-  new Promise((resolve) => {
-    const ytTitle = new YoutubeTitle(videoRecord.title)
-    if (ytTitle.isVideoRound())
-      resolve(completeRoundRecord(videoRecord))
-    if (ytTitle.isVideoCourse())
-      resolve(completeCourseRecord(videoRecord))
-  })
->>>>>>> master:packages/add-youtube-video/client/check-save-vdo.js
 const saveVideo = (videoRecord) =>
   Meteor.call('saveVdo', videoRecord, () =>
     Notifications.success('Vidéo enregistrée', `${videoRecord.title}`)
