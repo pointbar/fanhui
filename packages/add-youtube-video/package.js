@@ -17,7 +17,8 @@ Package.onUse(function(api) {
     'client/check-save-vdo.js',
     'client/record-vdos.js',
     'client/BO-insert-vdo.html',
-    'client/BO-insert-vdo.js'
+    'client/BO-insert-vdo.js',
+    'client/style.css'
   ], 'client')
   api.export('Vdos')
   api.export([
