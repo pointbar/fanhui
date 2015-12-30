@@ -28,9 +28,9 @@ YoutubeTitle = class {
     return this.title.match(/-C[A-Z]R\d-\w*-(\w*)-/)[1]
   }
   isVideoCourse() {
-    return this.title.match(/^\d{3}-(?:Joseki|Fuseki)-\d{2}-\d{2}-\d{4}$/)
+    return !! this.title.match(/^\d{3}-(?:Joseki|Fuseki)-\d{2}-\d{2}-\d{4}$/)
   }
   isVideoRound() {
-    return this.title.match(/^\d{3}-C[A-Z]R[0-9]-.*-.*-\d{2}-\d{2}-\d{4}$/)
+    return !! this.title.match(/^\d{3}-C[A-Z]R[0-9]-.*-.*-\d{2}-\d{2}-\d{4}$/)
   }
 }

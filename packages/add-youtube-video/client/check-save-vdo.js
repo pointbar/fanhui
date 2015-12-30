@@ -93,21 +93,19 @@ const notifPlayer = (videoRecord) =>
     if (ytTitle.isVideoCourse())
       resolve(videoRecord)
     else {
-      Meteor.subscribe('isInsei', 'pntbr', () => {
-        const blackPlayer = ytTitle.getBlackPlayer
-        const whitePlayer = ytTitle.getWhitePlayer
-        if (whitePlayer === Inseis.findOne({nickSlack: whitePlayer})) {
-          Notifications.warn(
-            `Le joueur blanc : ${whitePlayer} n'est pas membre de l'académie.`)
-          reject()
-        }
-        if (blackPlayer === Inseis.findOne({nickSlack: blackPlayer})) {
-          Notifications.warn(
-            `Le joueur noir : ${blackPlayer} n'est pas membre de l'académie.`)
-          reject()
-        }
-        resolve(videoRecord)
-      })
+      const blackPlayer = ytTitle.getBlackPlayer()
+      const whitePlayer = ytTitle.getWhitePlayer()
+      if (! isInsei(whitePlayer)) {
+        Notifications.warn(
+          `Le joueur blanc : ${whitePlayer} n'est pas membre de l'académie.`)
+        reject()
+      }
+      if (! isInsei(blackPlayer)) {
+        Notifications.warn(
+          `Le joueur noir : ${blackPlayer} n'est pas membre de l'académie.`)
+        reject()
+      }
+      resolve(videoRecord)
     }
   })
 const addThumbnail = (videoRecord) =>
@@ -124,9 +122,10 @@ const addThumbnail = (videoRecord) =>
   )
 const finalizeVideoRecord = (videoRecord) =>
   new Promise((resolve) => {
-    if (checkVideoRoundByTitle(videoRecord.title))
+    const ytTitle = new YoutubeTitle(videoRecord.title)
+    if (ytTitle.isVideoRound())
       resolve(completeRoundRecord(videoRecord))
-    if (checkVideoCourseByTitle(videoRecord.title))
+    if (ytTitle.isVideoCourse())
       resolve(completeCourseRecord(videoRecord))
   })
 const saveVideo = (videoRecord) =>
@@ -144,11 +143,3 @@ checkAndSave = (videoId) => {
     .then(addThumbnail)
     .then(saveVideo)
 }
-Template.insertVdoBO.events({
-  'click #btn_save_vdo': (evt) => {
-    const videoId = document.querySelector('#input_youtube_id').value
-    evt.preventDefault()
-    checkAndSave(videoId)
-    document.querySelector('#input_youtube_id').value = ''
-  }
-})
