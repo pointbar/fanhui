@@ -101,14 +101,14 @@ const notifPlayer = (videoRecord) =>
     if (ytTitle.isVideoCourse())
       resolve(videoRecord)
     else {
-      const blackPlayer = ytTitle.getBlackPlayer
-      const whitePlayer = ytTitle.getWhitePlayer
-      if (isInsei(whitePlayer)) {
+      const blackPlayer = ytTitle.getBlackPlayer()
+      const whitePlayer = ytTitle.getWhitePlayer()
+      if (! isInsei(whitePlayer)) {
         Notifications.warn(
           `Le joueur blanc : ${whitePlayer} n'est pas membre de l'académie.`)
         reject()
       }
-      if (isInsei(blackPlayer)) {
+      if (! isInsei(blackPlayer)) {
         Notifications.warn(
           `Le joueur noir : ${blackPlayer} n'est pas membre de l'académie.`)
         reject()
@@ -128,6 +128,17 @@ const addThumbnail = (videoRecord) =>
           resolve(Object.assign(videoRecord, {thumbnail: thumbnail}))
       })
   )
+<<<<<<< HEAD:packages/youtube/client/BO-insert-vdo.js
+=======
+const finalizeVideoRecord = (videoRecord) =>
+  new Promise((resolve) => {
+    const ytTitle = new YoutubeTitle(videoRecord.title)
+    if (ytTitle.isVideoRound())
+      resolve(completeRoundRecord(videoRecord))
+    if (ytTitle.isVideoCourse())
+      resolve(completeCourseRecord(videoRecord))
+  })
+>>>>>>> master:packages/add-youtube-video/client/check-save-vdo.js
 const saveVideo = (videoRecord) =>
   Meteor.call('saveVdo', videoRecord, () =>
     Notifications.success('Vidéo enregistrée', `${videoRecord.title}`)
@@ -143,11 +154,3 @@ checkAndSave = (videoId) => {
     .then(addThumbnail)
     .then(saveVideo)
 }
-Template.insertVdoBO.events({
-  'click #btn_save_vdo': (evt) => {
-    const videoId = document.querySelector('#input_youtube_id').value
-    evt.preventDefault()
-    checkAndSave(videoId)
-    document.querySelector('#input_youtube_id').value = ''
-  }
-})
