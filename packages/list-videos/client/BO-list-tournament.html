@@ -1,0 +1,36 @@
+
+<template name="tournamentBO">
+  {{> insertVdoBO}}
+  {{#each rounds}}
+    {{> listTournamentBO round=rank}}
+  {{/each}}
+</template>
+
+<template name="listTournamentBO">
+  <div class="col-md-3">
+    <article class="panel panel-success">
+      <header class="panel-heading"><h4>Round {{round}}</h4></header>
+      {{#each leagues}}
+        <h5 class="list-group-item list-group-item-success">League {{league}}</h5>
+        {{> listLeagueBO league=league round=round}}
+      {{/each}}
+    </article>
+  </div>
+</template>
+
+<template name="listLeagueBO">
+  <ul class="list-group panel-body">
+    {{#each vdos}}
+    {{> vdoTournamentBO}}
+    {{/each}}
+  </ul>
+</template>
+
+<template name="vdoTournamentBO">
+  <li class="list-group-item">
+    <a href="https://www.youtube.com/watch?v={{video_id}}" target="_blank">
+      {{blackPlayer}} Alice vs Bob {{whitePlayer}}
+    </a>
+    <button id="btn-{{_id}}" class="glyphicon glyphicon-remove btn_remove_vdo pull-right"></button>
+  </li>
+</template>

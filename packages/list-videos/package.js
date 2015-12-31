@@ -12,6 +12,8 @@ Package.onUse(function(api) {
   api.addFiles([
     'client/BO-list-vdos.html',
     'client/BO-list-vdos.js',
+    'client/BO-list-tournament.html',
+    'client/BO-list-tournament.js',
     'client/FO-list-vdos.html',
     'client/FO-list-vdos.js',
     'client/style.css'

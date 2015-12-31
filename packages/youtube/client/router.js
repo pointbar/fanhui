@@ -10,7 +10,7 @@ Router.route('/admin/vdo/course/oragefan', {
 })
 
 Router.route('/admin/vdo/tournament/oragefan', {
-  template: 'youtubeBO'
+  template: 'tournamentBO'
 })
 
 Router.route('/vdo/tournament/:insei', {
