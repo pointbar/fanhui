@@ -6,7 +6,7 @@ Router.route('/vdo/play/:videoId/:insei', {
 })
 
 Router.route('/admin/vdo/course/oragefan', {
-  template: 'youtubeBO'
+  template: 'courseBO'
 })
 
 Router.route('/admin/vdo/tournament/oragefan', {
@@ -14,9 +14,9 @@ Router.route('/admin/vdo/tournament/oragefan', {
 })
 
 Router.route('/vdo/tournament/:insei', {
-  template: 'tournament'
+  template: 'tournamentFO'
 })
 
 Router.route('/vdo/course/:insei', {
-  template: 'course'
+  template: 'courseFO'
 })

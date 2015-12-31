@@ -10,8 +10,8 @@ Package.onUse(function(api) {
   api.use(['ecmascript'])
   api.use('templating', 'client')
   api.addFiles([
-    'client/BO-list-vdos.html',
-    'client/BO-list-vdos.js',
+    'client/BO-list-course.html',
+    'client/BO-list-course.js',
     'client/BO-list-tournament.html',
     'client/BO-list-tournament.js',
     'client/FO-list-vdos.html',
