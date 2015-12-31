@@ -1,23 +1,33 @@
 <template name="tournamentFO">
-  {{> listTournamentFO category="Tournament"}}
+  {{#each rounds}}
+    {{> listTournamentFO round=rank}}
+  {{/each}}
 </template>
 
 <template name="listTournamentFO">
   <article class="col-md-12">
-    <ul class="media-list">
-      <hr>
-      {{#each vdos}}
-      {{> vdoTournamentFO}}
+    <header class="panel-heading"><h4>Round {{round}}</h4></header>
+      {{#each leagues}}
+        <h5 class="col-md-12">League {{league}}</h5>
+        {{> listLeagueFO league=league round=round}}
       {{/each}}
-    </ul>
   </article>
+</template>
+
+<template name="listLeagueFO">
+  <ul class="media-list">
+    <hr>
+    {{#each vdos}}
+      {{> vdoTournamentFO}}
+    {{/each}}
+  </ul>
 </template>
 
 <template name="vdoTournamentFO">
   <li class="col-md-3 vdo">
     <div class="panel panel-success">
       <header class="panel-heading">
-        <span class="label panel-title">Cours n° {{rank}} - {{category}}</span>
+        <span class="label panel-title">{{blackPlayer}} vs {{whitePlayer}}</span>
       </header>
       <a href="/vdo/play/{{video_id}}/{{nickSlack}}" target="_blank" class="thumbnail">
         <img id="{{video_id}}" src="data:image/jpg;base64,{{thumbnail}}">

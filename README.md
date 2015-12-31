@@ -27,12 +27,6 @@
 
 #### En cours
 
-##### 009 - Gérer et administrer les vidéos des tournois
-ETQ insei je peux consulter les vidéos de tournois.
-- [ ] doit permettre de visualiser les vidéos par ronde et par league.
-- [ ] doit permettre de visualiser les vidéos sans les cours.
-- [ ] doit permettre de visualiser le nom des joueurs.
-
 ##### 010 - Consulter mes informations
 ETQ Insei je peux gérer mes informations.
 - [ ] doit permettre de gérer : mail, kgs nickname, kgs rank, ffg rank.
@@ -87,6 +81,12 @@ ETQ Insei je peux consulter une vidéo afin de suivre un cours en rediffusion.
 ETQ FanHui je peux administrer les vidéos des tournois afin de proposer des parties commentées.
 - [x] doit permettre de gérer : joueurs, leagues, rondes.
 - [x] doit permettre de vérifier que les joueurs existent.
+
+##### [x] 009 - Gérer et administrer les vidéos des tournois
+ETQ insei je peux consulter les vidéos de tournois.
+- [x] doit permettre de visualiser les vidéos par ronde et par league.
+- [x] doit permettre de visualiser les vidéos sans les cours.
+- [x] doit permettre de visualiser le nom des joueurs.
 
 #### Grainerie
 

@@ -1,7 +1,3 @@
-Template.listCourseFO.onCreated(function () {
-  this.subscribe('vdos')
-})
-
 Template.listCourseFO.helpers({
   vdos: () =>
     Vdos.find(
