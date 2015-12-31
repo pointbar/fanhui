@@ -1,14 +1,14 @@
-Template.listVdosFO.onCreated(function () {
+Template.listCourseFO.onCreated(function () {
   this.subscribe('vdos')
 })
 
-Template.listVdosFO.helpers({
+Template.listCourseFO.helpers({
   vdos: () =>
     Vdos.find(
       {category: Template.currentData().category},
       {sort: {rank: -1}})
 })
 
-Template.vdoFO.helpers({
+Template.vdoCourseFO.helpers({
   nickSlack: () => nickSlackFromUrl()
 })

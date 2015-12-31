@@ -14,8 +14,10 @@ Package.onUse(function(api) {
     'client/BO-list-course.js',
     'client/BO-list-tournament.html',
     'client/BO-list-tournament.js',
-    'client/FO-list-vdos.html',
-    'client/FO-list-vdos.js',
+    'client/FO-list-course.html',
+    'client/FO-list-course.js',
+    'client/FO-list-tournament.html',
+    'client/FO-list-tournament.js',
     'client/style.css'
   ], 'client')
 })

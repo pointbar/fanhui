@@ -1,15 +1,19 @@
-<template name="listVdosFO">
+<template name="tournamentFO">
+  {{> listTournamentFO category="Tournament"}}
+</template>
+
+<template name="listTournamentFO">
   <article class="col-md-12">
     <ul class="media-list">
       <hr>
       {{#each vdos}}
-      {{> vdoFO}}
+      {{> vdoTournamentFO}}
       {{/each}}
     </ul>
   </article>
 </template>
 
-<template name="vdoFO">
+<template name="vdoTournamentFO">
   <li class="col-md-3 vdo">
     <div class="panel panel-success">
       <header class="panel-heading">

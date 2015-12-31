@@ -1,23 +1,23 @@
 <template name="courseBO">
   {{> insertVdoBO}}
-  {{> listVdosBO category="Fuseki" title="Cours de Fuseki"}}
-  {{> listVdosBO category="Joseki" title="Cours de Joseki"}}
+  {{> listCourseBO category="Fuseki" title="Cours de Fuseki"}}
+  {{> listCourseBO category="Joseki" title="Cours de Joseki"}}
 </template>
 
-<template name="listVdosBO">
+<template name="listCourseBO">
   <div class="col-md-3">
     <article class="panel panel-success">
       <header class="panel-heading"><h4>{{title}}</h4></header>
       <ul class="list-group panel-body">
         {{#each vdos}}
-        {{> vdoBO}}
+        {{> vdoCourseBO}}
         {{/each}}
       </ul>
     </article>
   </div>
 </template>
 
-<template name="vdoBO">
+<template name="vdoCourseBO">
   <li class="list-group-item">
     <a href="https://www.youtube.com/watch?v={{video_id}}" target="_blank">
       Cours n°{{rank}}
