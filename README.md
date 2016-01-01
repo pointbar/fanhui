@@ -22,6 +22,7 @@
 - [Iron Router](http://iron-meteor.github.io/iron-router/)
 - [aldeed:http](https://github.com/aldeed/meteor-http-extras)
 - [fortawesome:fontawesome](https://github.com/MeteorPackaging/Font-Awesome/)
+- [hiukim:slack-client](https://github.com/clionelabs/slack-client/)
 
 ### Backlog de produit
 
