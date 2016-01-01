@@ -109,6 +109,8 @@ ETQ insei je peux consulter les vidéos de tournois.
 - Doit être accessible que pour les inseis pour les pages de cours
 
 ### TODO
+- leagues dans slack
+- classement des vidéos dans youtube
 - single css file
 - secure BD
 - subscribe/publish

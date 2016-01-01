@@ -1,6 +1,28 @@
 let slack = new Slack(slackAuthToken, autoReconnect = true, autoMark = true)
-slack.on('open', () => console.log(Object.keys(slack.users)))
+slack.on('open', () => {
+  const slackUsersId = Object.keys(slack.users)
+  slackUsersId.map((userId) => {
+    const user = slack.users[userId]
+    console.info(`
+      name: ${user.name}
+      tz: ${user.tz}
+      email: ${user.profile.email}
+      skype: ${user.profile.skype}
+      firstName: ${user.profile.first_name}
+      lastName: ${user.profile.last_name}
+      image48: ${user.profile.image_48}
+      image192: ${user.profile.image_192}
+    `)
+  })
+})
+slack.login()
+/*
+  id, name, tz, deleted
+  profile:
+    image_48, image_192, first_name, last_name, skype, email
 
+  league
+/*
 const findInseis = [
     {firstName: 'Fan', lastName: 'Hui', nickSlack: 'oragefan', role: 'sensei'},
     {firstName: 'Cédric', lastName: 'Cardon', nickSlack: 'darkwolf', role: 'insei'},
@@ -13,4 +35,5 @@ const findInseis = [
     {firstName: 'Countchman', lastName: 'Prakash', nickSlack: 'kountch', role: 'insei'},
     {firstName: 'Mathieu', lastName: 'Delli-Zotti', nickSlack: 'shinichi56', role: 'insei'}
 ]
+*/
 ;(! Inseis.find().count()) && findInseis.map((insei) => Inseis.insert(insei))
