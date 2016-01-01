@@ -109,6 +109,7 @@ ETQ insei je peux consulter les vidéos de tournois.
 - Doit être accessible que pour les inseis pour les pages de cours
 
 ### TODO
+- single css file
 - secure BD
 - subscribe/publish
 - backup vdo
