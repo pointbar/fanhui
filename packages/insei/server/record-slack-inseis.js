@@ -1,4 +1,5 @@
-console.info('slack-test')
+let slack = new Slack(slackAuthToken, autoReconnect = true, autoMark = true)
+slack.on('open', () => console.log(Object.keys(slack.users)))
 
 const findInseis = [
     {firstName: 'Fan', lastName: 'Hui', nickSlack: 'oragefan', role: 'sensei'},
