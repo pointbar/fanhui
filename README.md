@@ -27,7 +27,13 @@
 
 #### En cours
 
-##### 010 - Consulter mes informations
+##### 010 - Consulter les utilisateurs présents sur slack
+ETQ Insei je peux lister les utilisateurs présents sur slack.
+- [ ] doit récupérer les utilisateurs présents sur slack.
+- [ ] doit distinguer les utilisateurs actifs et inactifs.
+- [ ] doit afficher les informations utilisateurs : nom, prénoms, email, gravatar.
+
+##### 011 - Consulter mes informations
 ETQ Insei je peux gérer mes informations.
 - [ ] doit permettre de gérer : mail, kgs nickname, kgs rank, ffg rank.
 - [ ] doit permettre de lister les vidéos me concernant.
