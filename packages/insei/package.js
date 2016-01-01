@@ -22,7 +22,7 @@ Package.onUse(function(api) {
     'client/list-inseis.html',
     'client/list-inseis.js'
   ], 'client')
-  api.export('Inseis', 'server')
+  api.export(['Inseis', 'updateUser'], 'server')
   api.export([
     'Inseis',
     'isInsei',
@@ -35,5 +35,5 @@ Package.onTest(function(api) {
   api.use(['iron:router@1.0.0', 'templating'], 'client')
   api.use('pntbr:insei')
   api.addFiles('tests-stubs.js')
-  api.addFiles('tests-insei.js', 'client')
+  api.addFiles('tests-insei.js')
 })

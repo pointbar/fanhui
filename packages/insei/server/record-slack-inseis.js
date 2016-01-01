@@ -1,7 +1,13 @@
-let slack = new Slack(slackAuthToken, autoReconnect = true, autoMark = true)
+const slack = new Slack(slackAuthToken, autoReconnect = true, autoMark = true)
+
+updateUser = (currentInfos, newInfos) => {
+  const updateInfos = currentInfos
+  Object.keys(newInfos).map(field => updateInfos[field] = newInfos[field])
+  return updateInfos
+}
 slack.on('open', () => {
   const slackUsersId = Object.keys(slack.users)
-  slackUsersId.map((userId) => {
+  slackUsersId.map(userId => {
     const user = slack.users[userId]
     console.info(`
       name: ${user.name}
@@ -36,4 +42,4 @@ const findInseis = [
     {firstName: 'Mathieu', lastName: 'Delli-Zotti', nickSlack: 'shinichi56', role: 'insei'}
 ]
 */
-;(! Inseis.find().count()) && findInseis.map((insei) => Inseis.insert(insei))
+// ;(! Inseis.find().count()) && findInseis.map((insei) => Inseis.insert(insei))
