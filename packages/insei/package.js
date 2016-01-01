@@ -10,7 +10,11 @@ Package.onUse(function(api) {
   api.use(['ecmascript', 'mongo'])
   api.use(['iron:router', 'templating'], 'client')
   api.addFiles('collection.js')
-  api.addFiles(['server/record-inseis.js', 'server/model.js'], 'server')
+  api.addFiles([
+    'server/slack-token.js',
+    'server/record-slack-inseis.js',
+    'server/model.js'
+  ], 'server')
   api.addFiles([
     'client/router.js',
     'client/inseis.js',
