@@ -11,7 +11,6 @@ Package.onUse(function(api) {
   api.use(['iron:router', 'templating'], 'client')
   api.addFiles([
     'client/FO-player-vdo.html',
-    'client/style.css',
     'client/router.js'
   ], 'client')
 })

@@ -17,8 +17,7 @@ Package.onUse(function(api) {
     'client/FO-list-course.html',
     'client/FO-list-course.js',
     'client/FO-list-tournament.html',
-    'client/FO-list-tournament.js',
-    'client/style.css'
+    'client/FO-list-tournament.js'
   ], 'client')
 })
 Package.onTest(function(api) {
