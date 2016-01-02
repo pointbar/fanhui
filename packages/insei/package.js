@@ -12,6 +12,7 @@ Package.onUse(function(api) {
   api.use(['iron:router', 'templating'], 'client')
   api.addFiles('collection.js')
   api.addFiles([
+    'server/insei.js',
     'server/slack-token.js',
     'server/record-slack-inseis.js',
     'server/model.js'
@@ -22,7 +23,7 @@ Package.onUse(function(api) {
     'client/list-inseis.html',
     'client/list-inseis.js'
   ], 'client')
-  api.export(['Inseis', 'updateUser'], 'server')
+  api.export(['Inseis', 'Insei'], 'server')
   api.export([
     'Inseis',
     'isInsei',
