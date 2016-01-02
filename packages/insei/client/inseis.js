@@ -1,6 +1,6 @@
 getInseiWithNickSlack = (nickSlack) => {
   Meteor.subscribe('inseis')
-  return Inseis.findOne({nickSlack: nickSlack})
+  return Inseis.findOne({slack_name: nickSlack})
 }
 
 isInsei = (nickSlack) => {
