@@ -30,7 +30,7 @@
 
 ##### 010 - Consulter les utilisateurs présents sur slack
 ETQ Insei je peux lister les utilisateurs présents sur slack.
-- [ ] doit récupérer les utilisateurs présents sur slack.
+- [x] doit récupérer les utilisateurs présents sur slack.
 - [ ] doit distinguer les utilisateurs actifs et inactifs.
 - [ ] doit afficher les informations utilisateurs : nom, prénoms, email, gravatar.
 
