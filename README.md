@@ -115,7 +115,7 @@ ETQ insei je peux consulter les vidéos de tournois.
 - secure BD
 - subscribe/publish
 - backup vdo
-- Slack
+- Versioning
 - Sinon.js
 
 ## Licence
