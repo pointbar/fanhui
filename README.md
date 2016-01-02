@@ -1,5 +1,6 @@
 ## Académie de Go de Fan Hui
-- [site](http://goacademie.github.io/fanhui/)
+- [Académie](http://cours.gofanhui.com)
+- [Information](http://goacademie.github.io/fanhui/)
 
 ### Équipe
 - Fan Hui - **Product Manager**
@@ -115,7 +116,7 @@ ETQ insei je peux consulter les vidéos de tournois.
 - secure BD
 - subscribe/publish
 - backup vdo
-- Slack
+- Versioning
 - Sinon.js
 
 ## Licence
