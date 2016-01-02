@@ -13,6 +13,12 @@
 
 <template name="insei">
   <li class="list-group-item">
-    {{firstName}} {{lastName}}<span class="label label-success pull-right">{{nickSlack}}</span>
+    <h5>
+      <img src="{{slack_image48}}" alt="{{slack_name}}_gravatar"> &nbsp;
+      <a href="https://academiedegodefanhui.slack.com/account/profile" target="_blank">
+        {{slack_lastName}} {{slack_firstName}}
+      </a>
+      <span class="label label-success pull-right">{{slack_name}}</span>
+    </h5>
   </li>
 </template>
