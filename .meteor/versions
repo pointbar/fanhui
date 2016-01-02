@@ -26,6 +26,7 @@ fastclick@1.0.7
 fortawesome:fontawesome@4.5.0
 geojson-utils@1.0.4
 gfk:notifications@1.1.4
+hiukim:slack-client@1.0.4
 hot-code-push@1.0.0
 html-tools@1.0.5
 htmljs@1.0.5
@@ -59,6 +60,7 @@ observe-sequence@1.0.7
 ordered-dict@1.0.4
 pntbr:add-youtube-video@0.0.1
 pntbr:insei@0.0.1
+pntbr:list-videos@0.0.1
 pntbr:youtube@0.0.1
 promise@0.5.1
 random@1.0.5

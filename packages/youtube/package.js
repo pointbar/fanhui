@@ -10,14 +10,7 @@ Package.onUse(function(api) {
   api.use(['ecmascript'])
   api.use(['iron:router', 'templating'], 'client')
   api.addFiles([
-    'client/BO-youtube.html',
-    'client/BO-list-vdos.html',
-    'client/BO-list-vdos.js',
-    'client/FO-youtube.html',
-    'client/FO-list-vdos.html',
-    'client/FO-list-vdos.js',
     'client/FO-player-vdo.html',
-    'client/style.css',
     'client/router.js'
   ], 'client')
 })

@@ -1,21 +1,27 @@
-<template name="listVdosFO">
+<template name="courseFO">
+  {{> listCourseFO category="Fuseki"}}
+  <hr>
+  {{> listCourseFO category="Joseki"}}
+</template>
+
+<template name="listCourseFO">
   <article class="col-md-12">
     <ul class="media-list">
       <hr>
       {{#each vdos}}
-      {{> vdoFO}}
+      {{> vdoCourseFO}}
       {{/each}}
     </ul>
   </article>
 </template>
 
-<template name="vdoFO">
+<template name="vdoCourseFO">
   <li class="col-md-3 vdo">
     <div class="panel panel-success">
       <header class="panel-heading">
         <span class="label panel-title">Cours n° {{rank}} - {{category}}</span>
       </header>
-      <a href="/vdo/play/{{video_id}}" target="_blank" class="thumbnail">
+      <a href="/vdo/play/{{video_id}}/{{nickSlack}}" target="_blank" class="thumbnail">
         <img id="{{video_id}}" src="data:image/jpg;base64,{{thumbnail}}">
       </a>
     </div>

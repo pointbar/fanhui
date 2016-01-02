@@ -8,16 +8,22 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.2.1')
   api.use(['ecmascript', 'mongo'])
+  api.use('hiukim:slack-client', 'server')
   api.use(['iron:router', 'templating'], 'client')
   api.addFiles('collection.js')
-  api.addFiles(['server/record-inseis.js', 'server/model.js'], 'server')
+  api.addFiles([
+    'server/insei.js',
+    'server/slack-token.js',
+    'server/record-slack-inseis.js',
+    'server/model.js'
+  ], 'server')
   api.addFiles([
     'client/router.js',
     'client/inseis.js',
     'client/list-inseis.html',
     'client/list-inseis.js'
   ], 'client')
-  api.export('Inseis', 'server')
+  api.export(['Inseis', 'Insei'], 'server')
   api.export([
     'Inseis',
     'isInsei',
@@ -30,5 +36,5 @@ Package.onTest(function(api) {
   api.use(['iron:router@1.0.0', 'templating'], 'client')
   api.use('pntbr:insei')
   api.addFiles('tests-stubs.js')
-  api.addFiles('tests-insei.js', 'client')
+  api.addFiles('tests-insei.js')
 })

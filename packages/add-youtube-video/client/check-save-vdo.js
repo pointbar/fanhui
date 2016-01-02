@@ -86,6 +86,14 @@ const notifVideoTitle = (videoRecord) =>
     }
     resolve(videoRecord)
   })
+const finalizeVideoRecord = (videoRecord) =>
+  new Promise((resolve) => {
+    const ytTitle = new YoutubeTitle(videoRecord.title)
+    if (ytTitle.isVideoRound())
+      resolve(completeRoundRecord(videoRecord))
+    if (ytTitle.isVideoCourse())
+      resolve(completeCourseRecord(videoRecord))
+  })
 const notifPlayer = (videoRecord) =>
   new Promise((resolve, reject) => {
     const ytTitle = new YoutubeTitle(videoRecord.title)
@@ -120,14 +128,6 @@ const addThumbnail = (videoRecord) =>
           resolve(Object.assign(videoRecord, {thumbnail: thumbnail}))
       })
   )
-const finalizeVideoRecord = (videoRecord) =>
-  new Promise((resolve) => {
-    const ytTitle = new YoutubeTitle(videoRecord.title)
-    if (ytTitle.isVideoRound())
-      resolve(completeRoundRecord(videoRecord))
-    if (ytTitle.isVideoCourse())
-      resolve(completeCourseRecord(videoRecord))
-  })
 const saveVideo = (videoRecord) =>
   Meteor.call('saveVdo', videoRecord, () =>
     Notifications.success('Vidéo enregistrée', `${videoRecord.title}`)

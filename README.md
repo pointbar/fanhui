@@ -22,18 +22,19 @@
 - [Iron Router](http://iron-meteor.github.io/iron-router/)
 - [aldeed:http](https://github.com/aldeed/meteor-http-extras)
 - [fortawesome:fontawesome](https://github.com/MeteorPackaging/Font-Awesome/)
+- [hiukim:slack-client](https://github.com/clionelabs/slack-client/)
 
 ### Backlog de produit
 
 #### En cours
 
-##### 009 - Gérer et administrer les vidéos des tournois
-ETQ insei je peux consulter les vidéos de tournois.
-- [ ] doit permettre de visualiser les vidéos par ronde et par league.
-- [ ] doit permettre de visualiser les vidéos sans les cours.
-- [ ] doit permettre de visualiser le nom des joueurs.
+##### 010 - Consulter les utilisateurs présents sur slack
+ETQ Insei je peux lister les utilisateurs présents sur slack.
+- [x] doit récupérer les utilisateurs présents sur slack.
+- [ ] doit distinguer les utilisateurs actifs et inactifs.
+- [ ] doit afficher les informations utilisateurs : nom, prénoms, email, gravatar.
 
-##### 010 - Consulter mes informations
+##### 011 - Consulter mes informations
 ETQ Insei je peux gérer mes informations.
 - [ ] doit permettre de gérer : mail, kgs nickname, kgs rank, ffg rank.
 - [ ] doit permettre de lister les vidéos me concernant.
@@ -88,6 +89,12 @@ ETQ FanHui je peux administrer les vidéos des tournois afin de proposer des par
 - [x] doit permettre de gérer : joueurs, leagues, rondes.
 - [x] doit permettre de vérifier que les joueurs existent.
 
+##### [x] 009 - Gérer et administrer les vidéos des tournois
+ETQ insei je peux consulter les vidéos de tournois.
+- [x] doit permettre de visualiser les vidéos par ronde et par league.
+- [x] doit permettre de visualiser les vidéos sans les cours.
+- [x] doit permettre de visualiser le nom des joueurs.
+
 #### Grainerie
 
 ##### - S'authentifier
@@ -102,8 +109,12 @@ ETQ FanHui je peux administrer les vidéos des tournois afin de proposer des par
 - Doit être accessible que pour les inseis pour les pages de cours
 
 ### TODO
+- leagues dans slack
+- classement des vidéos dans youtube
+- single css file
 - secure BD
 - subscribe/publish
+- backup vdo
 - Slack
 - Sinon.js
 
