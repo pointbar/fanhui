@@ -20,7 +20,7 @@ insecure                # Allow all DB writes from clients (for prototyping)
 mrt:bootstrap-3
 gfk:notifications
 iron:router
-pntbr:insei
+pntbr:slack-inseis
 pntbr:youtube
 http
 aldeed:http
