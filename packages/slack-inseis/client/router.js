@@ -1,7 +1,6 @@
 Router.route('/admin/insei/:insei', {
-  template: 'inseisList',
+  template: 'inseisList'
 })
 Router.route('/insei/:insei', {
   template: 'inseisList'
 })
-
