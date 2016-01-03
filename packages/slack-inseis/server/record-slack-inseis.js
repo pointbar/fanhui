@@ -9,11 +9,15 @@ updateInseisWithSlack = (slackUsersJson) => {
       Inseis.update(insei._id, slackInseis.updateInfos(insei, slackInsei))
     else
       Inseis.insert(slackInseis.addDefault(slackInsei))
-    console.info(`Record in Inseis database: ${slackInsei.slack_name}`)
   })
 }
 
-slack.on('open', Meteor.bindEnvironment(() => {
-  updateInseisWithSlack(slack.users)
-}))
-slack.login()
+Meteor.methods({
+  updateSlackInfos: () => {
+    slack.on('open', Meteor.bindEnvironment(() => {
+      updateInseisWithSlack(slack.users)
+      console.info('Slack updated')
+    }))
+    slack.login()
+  }
+})
