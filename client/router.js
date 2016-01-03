@@ -6,7 +6,7 @@ Router.configure({
 Router.onBeforeAction(function () {
   this.wait(Meteor.subscribe('inseis'))
   if (this.ready()) {
-    if (! isInsei(nickSlackFromUrl()))
+    if (! isInsei(slackNameFromUrl()))
       Router.go('/')
     this.next()
   }

@@ -14,7 +14,6 @@ if (Meteor.isClient) {
 }
 
 if (Meteor.isServer) {
-// getRelevantInfosBySlackId(slackId)
   Tinytest.add('Get skype field from relevant infos', (test) => {
     const slackUsers = new SlackInseis(slackUsersJson)
     test.equal(

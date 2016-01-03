@@ -28,7 +28,7 @@ Package.onUse(function(api) {
     'isInsei',
     'isSensei',
     'getInseiBySlackName',
-    'nickSlackFromUrl'
+    'slackNameFromUrl'
   ], 'client')
 })
 Package.onTest(function(api) {

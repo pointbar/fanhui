@@ -1,5 +1,5 @@
 Template.nav.helpers({
-  isInsei: () => isInsei(nickSlackFromUrl()),
-  isSensei: () => isSensei(nickSlackFromUrl()),
-  nickSlack: () => nickSlackFromUrl()
+  isInsei: () => isInsei(slackNameFromUrl()),
+  isSensei: () => isSensei(slackNameFromUrl()),
+  nickSlack: () => slackNameFromUrl()
 })

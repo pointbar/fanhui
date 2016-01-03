@@ -6,5 +6,5 @@ Template.listCourseFO.helpers({
 })
 
 Template.vdoCourseFO.helpers({
-  nickSlack: () => nickSlackFromUrl()
+  nickSlack: () => slackNameFromUrl()
 })

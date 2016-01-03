@@ -1,4 +1,7 @@
-getInseiBySlackName = (slackName) => Inseis.findOne({slack_name: slackName})
+getInseiBySlackName = (slackName) => {
+  Meteor.subscribe('inseis')
+  return Inseis.findOne({slack_name: slackName})
+}
 
 isInsei = (slackName) => {
   const insei = getInseiBySlackName(slackName)
@@ -10,4 +13,4 @@ isSensei = (slackName) => {
   return (typeof insei !== 'undefined') ? insei.slack_is_admin : false
 }
 
-nickSlackFromUrl = () => document.location.href.split('/').pop()
+slackNameFromUrl = () => document.location.href.split('/').pop()

@@ -24,5 +24,5 @@ Template.listLeagueFO.helpers({
 })
 
 Template.vdoTournamentFO.helpers({
-  nickSlack: () => nickSlackFromUrl()
+  nickSlack: () => slackNameFromUrl()
 })
