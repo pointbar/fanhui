@@ -1,6 +1,9 @@
-Router.route('/admin/insei/:insei', {
+Router.route('/admin/inseis/:insei', {
+  template: 'inseisList'
+})
+Router.route('/inseis/:insei', {
   template: 'inseisList'
 })
 Router.route('/insei/:insei', {
-  template: 'inseisList'
+  template: 'inseiEdit'
 })
