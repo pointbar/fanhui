@@ -13,4 +13,7 @@ isSensei = (slackName) => {
   return (typeof insei !== 'undefined') ? insei.slack_is_admin : false
 }
 
-slackNameFromUrl = () => document.location.href.split('/').pop()
+slackNameFromUrl = () => {
+  const slackNameFromUrl = document.location.href.split('/').pop()
+  return isInsei(slackNameFromUrl) ? slackNameFromUrl : 'guest'
+}
