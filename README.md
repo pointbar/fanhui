@@ -31,8 +31,10 @@
 
 ##### 012 - Accéder aux vidéos gratuites
 ETQ Visiteurs je peux accéder aux vidéos gratuites.
-- [ ] doit afficher les deux premières vidéos de fuseki et joseki.
-- [ ] doit afficher deux parties commentées.
+- [ ] doit afficher les vidéos de fuseki et joseki public dans youtube.
+- [x] doit réserver les vidéos de fuseki et joseki privé dans youtube.
+- [ ] doit afficher les vidéos de commentaires public dans youtube.
+- [ ] doit réserver les vidéos de commentaires privé dans youtube.
 
 ##### 013 - Administrer les inseis
 ETQ Sensei je peux gérer les informations afin de spécifier les groupes et donner des consteils spécifiques.
