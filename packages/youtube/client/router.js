@@ -5,11 +5,11 @@ Router.route('/vdo/play/:videoId/:insei', {
   }
 })
 
-Router.route('/admin/vdo/course/oragefan', {
+Router.route('/admin/vdo/course/:insei', {
   template: 'courseBO'
 })
 
-Router.route('/admin/vdo/tournament/oragefan', {
+Router.route('/admin/vdo/tournament/:insei', {
   template: 'tournamentBO'
 })
 
