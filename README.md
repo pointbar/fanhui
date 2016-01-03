@@ -32,8 +32,8 @@
 ##### 010 - Consulter les utilisateurs présents sur slack
 ETQ Insei je peux lister les utilisateurs présents sur slack.
 - [x] doit récupérer les utilisateurs présents sur slack.
-- [ ] doit distinguer les utilisateurs actifs et inactifs.
-- [ ] doit afficher les informations utilisateurs : nom, prénoms, email, gravatar.
+- [x] doit afficher les informations utilisateurs : nom, prénoms, email, gravatar.
+- [ ] doit actualiser les données den provenance de slack à chaque consultation de la page.
 
 ##### 011 - Consulter mes informations
 ETQ Insei je peux gérer mes informations.
@@ -98,6 +98,12 @@ ETQ insei je peux consulter les vidéos de tournois.
 
 #### Grainerie
 
+##### - Proposer des vidéos gratuites
+##### - Distinguer les utilisateurs actifs et inactifs.
+##### - Gérer les droits : cours, vidéos, ...
+##### - Gérer les votes
+##### - Gérer les classements
+##### - Proposer le paiement
 ##### - S'authentifier
 ##### - Envoyer un message sur slack
 ##### - Ajouter un SGF
@@ -106,8 +112,6 @@ ETQ insei je peux consulter les vidéos de tournois.
 ### DoD
 - Ne doit être accessible qu'aux élèves de l'académie Fan-Hui.
 - Doit comporter des messages de notification
-- Doit être réservé à Fan Hui pour l'administration
-- Doit être accessible que pour les inseis pour les pages de cours
 
 ### TODO
 - leagues dans slack
