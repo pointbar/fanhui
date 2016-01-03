@@ -3,6 +3,7 @@ Router.configure({
   layoutTemplate: 'layout'
 })
 
+/*
 Router.onBeforeAction(function () {
   this.wait(Meteor.subscribe('inseis'))
   if (this.ready()) {
@@ -11,6 +12,7 @@ Router.onBeforeAction(function () {
     this.next()
   }
 })
+*/
 
 Router.route('/', {
   template: 'notFound'
