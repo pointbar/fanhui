@@ -20,6 +20,8 @@ Package.onUse(function(api) {
   api.addFiles([
     'client/router.js',
     'client/inseis.js',
+    'client/edit-insei.html',
+    'client/edit-insei.js',
     'client/list-inseis.html',
     'client/list-inseis.js'
   ], 'client')

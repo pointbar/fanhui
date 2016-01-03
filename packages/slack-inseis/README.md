@@ -15,12 +15,4 @@ Il ne vous reste plus qu'à copier ou renommer le fichier :
 > server/slack-token.js
 
 TODO:
-* testing collections (Now the collections is hydrate automaticaly by slack)
-* When we update slack info
-* Sensei role given by slack admin
 * Reprendre la présentation de slack
-
-const slackUsers = {
-  A1234: {name: 'Bob', profile: {skype: 'funny', email: 'ab'}},
-  BX235: {name: 'Rob', profile: {skype: '', email: 'bx'}}
-}

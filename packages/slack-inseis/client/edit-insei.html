@@ -1,0 +1,76 @@
+<template name="inseiEdit">
+  <article class="panel panel-default">
+    <header class="panel-heading">
+        <h3 class="label panel-title">Mon compte</h3>
+    </header>
+    <div class="panel-body">
+      <img src="{{insei.slack_image192}}" class="thumbnail col-md-3 col-md-offset-1" />
+      <ul class="list-group col-md-6 col-md-offset-1">
+        <li class="list-group-item list-group-item-danger"><h5>Informations slack</h5></li>
+        <li class="list-group-item"><strong>Pseudo Slack : </strong>{{insei.slack_name}}</li>
+        <li class="list-group-item"><strong>Prénom : </strong>{{insei.slack_firstName}}</li>
+        <li class="list-group-item"><strong>Nom : </strong>{{insei.slack_lastName}}</li>
+        <li class="list-group-item"><strong>Skype : </strong>{{insei.slack_skype}}</li>
+        <li class="list-group-item"><strong>Time zone : </strong>{{insei.slack_tz}}</li>
+      </ul>
+      <ul class="list-group col-md-10 col-md-offset-1">
+        <li class="list-group-item list-group-item-danger"><h5>Informations complémentaires</h5></li>
+        <li class="list-group-item">
+          League
+          <div class="input-group col-md-2 league">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button" data-field="league">
+                <i class="fa fa-check"></i>
+              </button>
+            </span>
+            <input type="text" class="form-control" value="{{insei.league}}" data-field="league"/>
+          </div>
+        </li>
+        <li class="list-group-item">
+          Pseudo Kgs
+          <div class="input-group col-md-2 kgsName">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button" data-field="kgsName">
+                <i class="fa fa-check"></i>
+              </button>
+            </span>
+            <input type="text" class="form-control" value="{{insei.kgsName}}" data-field="kgsName"/>
+          </div>
+        </li>
+        <li class="list-group-item">
+          Classement KGS
+          <div class="input-group col-md-2 kgsRank">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button" data-field="kgsRank">
+                <i class="fa fa-check"></i>
+              </button>
+            </span>
+            <input type="text" class="form-control" value="{{insei.kgsRank}}" data-field="kgsRank"/>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <a href="http://ffg.jeudego.org/php/affichePersonne.php?id={{insei.ffgId}}" target="_blank">Identifiant FFG</a>
+          <div class="input-group col-md-2 ffgRank">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button" data-field="ffgId">
+                <i class="fa fa-check"></i>
+              </button>
+            </span>
+            <input type="text" class="form-control" value="{{insei.ffgId}}" data-field="ffgId"/>
+          </div>
+        </li>
+        <li class="list-group-item">
+          Classement FFG
+          <div class="input-group col-md-2 ffgRank">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button" data-field="ffgRank">
+                <i class="fa fa-check"></i>
+              </button>
+            </span>
+            <input type="text" class="form-control" value="{{insei.ffgRank}}" data-field="ffgRank"/>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </article>
+</template>

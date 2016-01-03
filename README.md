@@ -29,10 +29,14 @@
 
 #### En cours
 
-##### 011 - Consulter mes informations
-ETQ Insei je peux gérer mes informations.
-- [ ] doit permettre de gérer : mail, kgs nickname, kgs rank, ffg rank.
-- [ ] doit permettre de lister les vidéos me concernant.
+##### 012 - Accéder aux vidéos gratuites
+ETQ Visiteurs je peux accéder aux vidéos gratuites.
+- [ ] doit afficher les deux premières vidéos de fuseki et joseki.
+- [ ] doit afficher deux parties commentées.
+
+##### 013 - Administrer les inseis
+ETQ Sensei je peux gérer les informations afin de spécifier les groupes et donner des consteils spécifiques.
+- [ ] doit permettre à l'administrateur de modifier l'infos league et commentaires.
 
 #### Terminées
 
@@ -96,16 +100,20 @@ ETQ Insei je peux lister les utilisateurs présents sur slack.
 - [x] doit afficher les informations utilisateurs : nom, prénoms, email, gravatar.
 - [x] doit actualiser les données den provenance de slack à chaque consultation de la page.
 
+##### [x] 011 - Consulter mes informations
+ETQ Insei je peux gérer mes informations.
+- [x] doit permettre de gérer : kgs nickname, kgs rank, ffg rank et lien ffg.
+- [x] doit afficher les infos slacks complémentaires : skype, email, tz.
+
 #### Grainerie
 
-##### - Proposer des vidéos gratuites
+##### - Permettre de lister les vidéos me concernant.
 ##### - Distinguer les utilisateurs actifs et inactifs.
 ##### - Gérer les droits : cours, vidéos, ...
 ##### - Gérer les votes
 ##### - Gérer les classements
 ##### - Proposer le paiement
 ##### - S'authentifier
-##### - Envoyer un message sur slack
 ##### - Ajouter un SGF
 ##### - Visualiser un SGF
 
