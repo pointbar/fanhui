@@ -1,15 +1,15 @@
 <template name="tournamentFO">
   {{#each rounds}}
-    {{> listTournamentFO round=rank}}
+    {{> listTournamentFO round=round}}
   {{/each}}
 </template>
 
 <template name="listTournamentFO">
   <article class="col-md-12">
     <header class="panel-heading"><h4>Round {{round}}</h4></header>
-      {{#each leagues}}
-        <h5 class="col-md-12">League {{league}}</h5>
-        {{> listLeagueFO league=league round=round}}
+      {{#each league in leagues}}
+        <h5 class="col-md-12">League {{league.league}}</h5>
+        {{> listLeagueFO league=league.league round=round}}
       {{/each}}
   </article>
 </template>

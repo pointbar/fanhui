@@ -4,22 +4,28 @@ Template.listLeagueBO.onCreated(function () {
 
 Template.tournamentFO.helpers({
   rounds: () =>
-    // Replace category by 'tournament' and rank by round
     _.uniq(Vdos.find({
-      category: 'Joseki'}, {
-        fields: {rank: 1},
-        sort: {rank: 1}
-      }).fetch(), true, ({rank}) => rank)
+      category: 'Tournament'}, {
+        fields: {round: 1},
+        sort: {round: 1}
+      }).fetch(), true, ({round}) => round)
 })
 
 Template.listTournamentFO.helpers({
-  leagues: () => [{league: 'Joseki'}, {league: 'Fuseki'}]
+  leagues: () =>
+    _.uniq(Vdos.find({
+      category: 'Tournament'}, {
+        fields: {league: 1},
+        sort: {league: 1}
+      }).fetch(), true, ({league}) => league)
 })
 
 Template.listLeagueFO.helpers({
   vdos: () =>
     Vdos.find({
-      category: Template.currentData().league}, {
+      category: 'Tournament',
+      league: Template.currentData().league,
+      round: Template.currentData().round}, {
         sort: {rank: -1}})
 })
 
