@@ -1,5 +1,7 @@
 const fusekiTitle = new YoutubeTitle('007-Fuseki-07-12-2015')
-const roundTitle = new YoutubeTitle('001-CAR5-pntbr-kountch-07-12-2015')
+const roundTitle = new YoutubeTitle('001-CAR5-pntbr-kountch.kgs-07-12-2015')
+const greatTournamentTitle =
+  new YoutubeTitle('001-GT5R3-pntbr.kgs-kountch-07-12-2015')
 let badCourseTitle
 let badRoundTitle
 
@@ -29,7 +31,7 @@ Tinytest.add('Extract round in title.', (test) =>
 )
 Tinytest.add('Extract white player in title.', (test) =>
   test.equal(
-    roundTitle.getWhitePlayer(), 'kountch')
+    roundTitle.getWhitePlayer(), 'kountch.kgs')
 )
 Tinytest.add('Check right comment as title.', (test) =>
   test.isTrue(roundTitle.isVideoRound())
@@ -56,4 +58,12 @@ Tinytest.add('Check -07-Fuseki-07-12-2015- as not a title.', (test) => {
 Tinytest.add('Check -007-Fuseki-07-122015- as not a title.', (test) => {
   badCourseTitle = new YoutubeTitle('007-Fuseki-07-122015')
   test.isFalse(badCourseTitle.isVideoCourse())
+})
+Tinytest.add('Check is Great Tournament title is correct.', (test) =>
+  test.isTrue(greatTournamentTitle.isVideoGreatTournament())
+)
+Tinytest.add('Check is invalid Great Tournament title is false.', (test) => {
+  badGreatTournamentTitle =
+    new YoutubeTitle('001-GTR5-pntbr.kgs-kountch-07-12-2015')
+  test.isFalse(badGreatTournamentTitle.isVideoGreatTournament())
 })
