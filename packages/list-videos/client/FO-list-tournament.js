@@ -5,26 +5,16 @@ Template.listLeagueBO.onCreated(function () {
 Template.tournamentFO.helpers({
   rounds: () =>
     _.uniq(Vdos.find({
-      category: 'Tournament'}, {
+      category: 'Great tournament'}, {
         fields: {round: 1},
         sort: {round: 1}
       }).fetch(), true, ({round}) => round)
 })
 
-Template.listTournamentFO.helpers({
-  leagues: () =>
-    _.uniq(Vdos.find({
-      category: 'Tournament'}, {
-        fields: {league: 1},
-        sort: {league: 1}
-      }).fetch(), true, ({league}) => league)
-})
-
-Template.listLeagueFO.helpers({
+Template.listVdosTournamentFO.helpers({
   vdos: () =>
     Vdos.find({
-      category: 'Tournament',
-      league: Template.currentData().league,
+      category: 'Great tournament',
       round: Template.currentData().round}, {
         sort: {rank: -1}})
 })

@@ -1,20 +1,23 @@
-<template name="tournamentBO">
+<template name="roundBO">
   {{> insertVdoBO}}
   {{#each rounds}}
-    {{> listTournamentBO round=round}}
+    {{> listRoundBO round=round}}
   {{/each}}
 </template>
 
-<template name="listTournamentBO">
+<template name="listRoundBO">
   <div class="col-md-3">
     <article class="panel panel-success">
       <header class="panel-heading"><h4>Round {{round}}</h4></header>
-      {{> listVdosTournamentBO round=round}}
+      {{#each league in leagues}}
+        <h5 class="list-group-item list-group-item-success">League {{league.league}}</h5>
+        {{> listLeagueBO league=league.league round=round}}
+      {{/each}}
     </article>
   </div>
 </template>
 
-<template name="listVdosTournamentBO">
+<template name="listLeagueBO">
   <ul class="list-group panel-body">
     {{#each vdos}}
       {{> vdoRoundBO}}
@@ -22,7 +25,7 @@
   </ul>
 </template>
 
-<template name="vdoTournamentBO">
+<template name="vdoRoundBO">
   <li class="list-group-item">
     <a href="https://www.youtube.com/watch?v={{video_id}}" target="_blank">
       {{blackPlayer}} vs {{whitePlayer}}

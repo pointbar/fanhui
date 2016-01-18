@@ -1,26 +1,29 @@
-<template name="tournamentFO">
+<template name="roundFO">
   {{#each rounds}}
-    {{> listTournamentFO round=round}}
+    {{> listRoundFO round=round}}
   {{/each}}
 </template>
 
-<template name="listTournamentFO">
+<template name="listRoundFO">
   <article class="col-md-12">
     <header class="panel-heading"><h4>Round {{round}}</h4></header>
-    {{> listVdosTournamentFO round=round}}
+      {{#each league in leagues}}
+        <h5 class="col-md-12">League {{league.league}}</h5>
+        {{> listLeagueFO league=league.league round=round}}
+      {{/each}}
   </article>
 </template>
 
-<template name="listVdosTournamentFO">
+<template name="listLeagueFO">
   <ul class="media-list">
     <hr>
     {{#each vdos}}
-      {{> vdoTournamentFO}}
+      {{> vdoRoundFO}}
     {{/each}}
   </ul>
 </template>
 
-<template name="vdoTournamentFO">
+<template name="vdoRoundFO">
   <li class="col-md-3 vdo">
     <div class="panel panel-default">
       <header class="panel-heading">

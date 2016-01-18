@@ -1,10 +1,19 @@
-Template.tournamentBO.helpers({
+Template.roundBO.helpers({
   rounds: () =>
     _.uniq(Vdos.find({
-      category: 'Great tournament'}, {
+      category: 'Tournament'}, {
         fields: {round: 1},
         sort: {round: 1}
       }).fetch(), true, ({round}) => round)
+})
+
+Template.listRoundBO.helpers({
+  leagues: () =>
+    _.uniq(Vdos.find({
+      category: 'Tournament'}, {
+        fields: {league: 1},
+        sort: {league: 1}
+      }).fetch(), true, ({league}) => league)
 })
 
 Template.listLeagueBO.helpers({
@@ -16,15 +25,7 @@ Template.listLeagueBO.helpers({
         sort: {rank: -1}})
 })
 
-Template.listVdosTournamentBO.helpers({
-  vdos: () =>
-    Vdos.find({
-      category: 'Great tournament',
-      round: Template.currentData().round}, {
-        sort: {rank: -1}})
-})
-
-Template.listTournamentBO.events({
+Template.listRoundBO.events({
   'click .btn_remove_vdo': (event) =>
     Vdos.remove(event.target.id.replace(/btn-/, ''))
 })
