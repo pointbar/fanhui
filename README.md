@@ -29,14 +29,14 @@
 
 #### En cours
 
-##### 012 - Accéder aux vidéos gratuites
+##### 013 - Accéder aux vidéos gratuites
 ETQ Visiteurs je peux accéder aux vidéos gratuites.
 - [ ] doit afficher les vidéos de fuseki et joseki public dans youtube.
 - [x] doit réserver les vidéos de fuseki et joseki privé dans youtube.
 - [ ] doit afficher les vidéos de commentaires public dans youtube.
 - [ ] doit réserver les vidéos de commentaires privé dans youtube.
 
-##### 013 - Administrer les inseis
+##### 014 - Administrer les inseis
 ETQ Sensei je peux gérer les informations afin de spécifier les groupes et donner des consteils spécifiques.
 - [ ] doit permettre à l'administrateur de modifier l'infos league et commentaires.
 
@@ -106,6 +106,12 @@ ETQ Insei je peux lister les utilisateurs présents sur slack.
 ETQ Insei je peux gérer mes informations.
 - [x] doit permettre de gérer : kgs nickname, kgs rank, ffg rank et lien ffg.
 - [x] doit afficher les infos slacks complémentaires : skype, email, tz.
+
+##### [x] 012 - Consulter les videos du grand tournois
+ETQ Insei je peux consulter les vidéos grand tournois afin d'écouter les commentaires.
+- [x] doit permettre de visualiser les vidéos par ronde.
+- [x] doit permettre de visualiser les vidéos sans les cours.
+- [x] doit permettre de visualiser le nom des joueurs.
 
 #### Grainerie
 
