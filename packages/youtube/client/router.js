@@ -17,6 +17,14 @@ Router.route('/vdo/tournament/:insei', {
   template: 'tournamentFO'
 })
 
+Router.route('/admin/vdo/round/:insei', {
+  template: 'roundBO'
+})
+
+Router.route('/vdo/round/:insei', {
+  template: 'roundFO'
+})
+
 Router.route('/vdo/course/:insei', {
   template: 'courseFO'
 })
