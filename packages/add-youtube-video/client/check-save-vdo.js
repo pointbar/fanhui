@@ -22,7 +22,7 @@ completeCourseRecord = (videoRecord) => {
   })
 }
 /*
- *  Complete an object for course Joseki or Fuseki
+ *  Complete an object for tournament rounds
 */
 completeRoundRecord = (videoRecord) => {
   const ytTitle = new YoutubeTitle(videoRecord.title)
@@ -34,6 +34,21 @@ completeRoundRecord = (videoRecord) => {
     whitePlayer: ytTitle.getWhitePlayer(),
     round: ytTitle.getRound(),
     league: ytTitle.getLeague()
+  })
+}
+/*
+ *  Complete an object for great tournament rounds
+*/
+completeGreatTournamentRecord = (videoRecord) => {
+  const ytTitle = new YoutubeTitle(videoRecord.title)
+  return Object.assign(videoRecord, {
+    category: ytTitle.getCategory(),
+    date: ytTitle.getDate(),
+    rank: ytTitle.getRank(),
+    blackPlayer: ytTitle.getBlackPlayer(),
+    whitePlayer: ytTitle.getWhitePlayer(),
+    round: ytTitle.getRound(),
+    season: ytTitle.getSeason()
   })
 }
 /*
@@ -80,7 +95,10 @@ const buildVideoRecord = (youtubeData) =>
 const notifVideoTitle = (videoRecord) =>
   new Promise((resolve, reject) => {
     const ytTitle = new YoutubeTitle(videoRecord.title)
-    if (! ytTitle.isVideoCourse() && ! ytTitle.isVideoRound()) {
+    if (
+      ! ytTitle.isVideoCourse() &&
+      ! ytTitle.isVideoRound() &&
+      ! ytTitle.isVideoGreatTournament()) {
       Notifications.warn('Problème de titre Youtube', `${ytTitle.title}`)
       reject()
     }
@@ -93,6 +111,8 @@ const finalizeVideoRecord = (videoRecord) =>
       resolve(completeRoundRecord(videoRecord))
     if (ytTitle.isVideoCourse())
       resolve(completeCourseRecord(videoRecord))
+    if (ytTitle.isVideoGreatTournament())
+      resolve(completeGreatTournamentRecord(videoRecord))
   })
 const notifPlayer = (videoRecord) =>
   new Promise((resolve, reject) => {
